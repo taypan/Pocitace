@@ -1,0 +1,72 @@
+{extends innerLayout.phtml}
+{block obsah}
+
+<div id="zuctovani-cont">
+	<h3>EXPERIENCED GAMER</h3>
+	<img src="http://pocitace.omnique.cz/css/images/c310_sub.jpg" alt="case" width="170px" height="206px" />
+	<div class="config zuctovani">
+	  <h4>KOMPONENTY:</h4>
+	  <p class="komponenty">
+	    {foreach $sideitems as $sideitem}
+			{$sideitem}</br>
+		{/foreach}
+      </p>
+     
+
+
+     
+    </div>
+      <div class="config zuctovani">
+	  <h4>VOLITELNÉ SOUČÁSTI:</h4>
+	  <p class="komponenty">
+	    AMD Phenom II X4 925
+	    <br />Single ATI HD5770 1GB
+	    <br /> Asus M4A79XTD EVO 790X
+	    <br />Kingston DIMM 4096MB DDR III 1600MHz
+	    <br /> Samsung SpinPoint F3 - 1TB
+	    <br />CoolerMaster Elite
+	    <br />Zalman CU Cooler 
+	    <br /> PSU Seasonic 80+
+      </p>
+     
+
+
+
+     
+    </div>
+    <div class="config zuctovani">
+     <h4>DOPRAVA:</h4>
+	 <p> 
+	    {$doprava}
+	    </p>
+	    <br /><br /> <br />
+
+      
+	
+	  <h4>PLATBA:</h4>
+	    
+	    <p>
+	      {$platba}
+	      <br />
+	    </p>
+	 
+     
+
+
+
+     
+    </div>
+  
+    
+  <div id="zuctovani-end"> 
+             
+
+         <div class="price-nahledCont">
+      <div class="price-nahledDPH">S DPH</div>
+      <div class="price-nahledPrice">25 000, - Kč</div></div>
+      <div class="price-nahledCont">
+      <div class="price-nahledNoDPH">bez DPH</div>
+      <div class="price-nahledNoDPHprice">25 000, - Kč</div></div>      <a href="gaming/experienced_gamer"><span class="button-green nahled-button-margin-top zuctovani-button">konfiguruj</span></a>
+      <a href="gaming/experienced_gamer"><span class="button-grey-mini button-mini-left nahled-button-margin-top">koupit</span></a></div>
+    
+    </div>

@@ -1,0 +1,41 @@
+{extends innerLayout.phtml}
+
+{block group}
+{if isset($control['konfigurator'][$druh])}
+<div>
+<h3>{$nazev}</h3>
+       <div class="config-cont-box">
+       
+            {$control['konfigurator'][$druh]->control}
+       
+        </div>
+		</div>
+        {/if}            
+{/block}
+
+
+{block obsah}
+
+    <div id="config-cont" class="niceform">
+    {control konfigurator begin}
+    {control konfigurator errors}
+    	{foreach $druhy as $druh => $nazev}
+    	{include #group, nazev => $nazev, druh => $druh}
+    	{/foreach}
+    	
+    	{control konfigurator validation}
+    	<input type="submit">
+    	{control konfigurator end}
+    	
+        
+    </div>
+
+{include #sidebar}
+<div id="button-line">
+<a onclick="submit();"><span class="button-green-mini button-mini-right">Pokračovat</span></a>
+{include #buttonZrusit}
+</div> 
+
+
+
+

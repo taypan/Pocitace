@@ -1,0 +1,2 @@
+registrace/i bez registrace; pri nakupu mit moznost menit hw konfiguraci pres form s par radio a checkboxama; objednavka v nekolika krocich, ktery upresnim pozdeji; login; prehled objednavek
+(08:31:53 AM) Lukas - Web: pridavani produktu a podobny veci tam nechci

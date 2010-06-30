@@ -1,0 +1,37 @@
+{extends ../@layout.phtml}
+{block buttonZrusit}
+<a onClick="if(confirm('Opravdu?')) location.href = {link cancel!};">
+<span class="button-grey-mini button-mini-right">Zrušit</span>
+</a>
+{/block}
+{block sidebar}
+<div id="sidebar-config-small">
+<div class="side-config">Aktuální cena</div>
+ <div class="price-nahledCont">
+      <div class="price-nahledDPH">S DPH</div>
+      <div class="price-nahledPrice">25 000, - Kč</div></div>
+      <div class="price-nahledCont">
+      <div class="price-nahledNoDPH">bez DPH</div>
+      <div class="price-nahledNoDPHprice">25 000, - Kč</div></div></div>
+<div id="sidebar-config">
+<div class="side-config">Aktuální konfigurace:</div>
+<ul>
+{foreach $sideitems as $sideitem}
+<li>{$sideitem}</li>
+{/foreach}
+</ul>
+<div id="dovoz-cont">+ dovoz</div>
+</div>	
+{/block}
+
+{block content}
+<div id="nahled">
+<h3 class="prubeh">Průběh objednávky - {$step} - {$currstep}</h3>
+<a href="{link Objednavka:Konfigurace, typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:konfigurace}button-postup-green{else}button-postup-grey{/if} button-postup-left">Konfigurace</span></a>
+<a href="{link Objednavka:Kosik, typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:kosik}button-postup-green{else}button-postup-grey{/if}">Košík</span></a>
+<a href="{link Objednavka:Doprava ,typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:doprava}button-postup-green{else}button-postup-grey{/if}">Doprava</span></a>	
+<a href="{link Objednavka:Podminky,typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:podminky}button-postup-green{else}button-postup-grey{/if}">Podmínky</span></a>	
+<a href="{link Objednavka:Potvrzeni,typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:potvrzeni}button-postup-green{else}button-postup-grey{/if}">Potvrzení</span></a>	
+<a href="{link Objednavka:Zaver,typ => $typ, id => $id}"><span class="{ifCurrent Objednavka:zaver}button-postup-green{else}button-postup-grey{/if}">Závěr</span></a>	
+{include #obsah}
+</div>
