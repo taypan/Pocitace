@@ -19,8 +19,8 @@ class ObjednavkaPresenter extends TemplatePresenter
 {
 	var $steps = array(
 	1 => 'konfigurace',
-	2 => 'kosik',
-	3 => 'doprava',
+	2 => 'doprava',
+	3 => 'kosik',
 	4 => 'podminky',
 	5 => 'potvrzeni',
 	6 => 'zaver');
@@ -43,10 +43,40 @@ class ObjednavkaPresenter extends TemplatePresenter
 		$this->checkStep();
 		$this->template->step = $this->session->step;
 		$this->template->currstep = $this->currStep;
+		$this->template->sestava = $this->model->fetchSestavy('level',array('typ'=>$this->typ,'level'=>$this->id))->fetch();
 		$komponenty = $this->getParts($this->typ,$this->id);
 		$komponenty= $this->optionsDefault($komponenty,$this->stav);
 		$this->komponenty = $komponenty;
 		$this->setSidebar($komponenty);
+		$this->session->sestava = $this->model->fetchSestavy('level',array('typ'=>$this->typ,'level'=>$this->id))->fetch();
+
+		$cena = $this->session->sestava['cena'];
+		$cena += $this->getPrize($komponenty);
+		$this->session->cena = $cena;
+		$this->template->cena = $cena;
+		switch ($this->typ)
+		{
+			case 'game':
+				$this->template->color = 'green';
+				break;
+			case 'pro':
+				$this->template->color = 'purple';
+				break;
+			case 'office':
+				$this->template->color = 'blue';
+				break;
+			case 'home':
+				$this->template->color = 'orange';
+				break;
+			default: 'green';
+			$this->template->color = 'orange';
+		}
+		//echo $cena;
+		/*foreach($this->komponenty as $item)
+		 {
+			$cena += $this->model->getIdPrize(NULL,NULL,NULL,NULL,$item)->fetchSingle();
+			}
+			$this->template->cena = $cena;*/
 		//Debug::dump($this->session->items);
 
 	}
@@ -143,6 +173,7 @@ class ObjednavkaPresenter extends TemplatePresenter
 	}
 	public function setSidebar($komponenty)
 	{
+		$sideitems = array();
 		if(isset($this->session->items))
 		{
 			foreach($this->session->items as $item)
@@ -174,6 +205,49 @@ class ObjednavkaPresenter extends TemplatePresenter
 			$this->template->sideitems = $sideitems;
 		}
 	}
+
+	public function getPrize($komponenty)
+	{
+		$items = array();
+		if(isset($this->session->items))
+		{
+			foreach($this->session->items as $item)
+			{
+				$items[$item] = $this->model->getIdPrize(NULL,NULL,NULL,NULL,$item)->fetchSingle();
+			}
+			//Debug::dump($sideitems);
+		}
+		else
+		{
+			$komponenty = $this->getParts($this->typ,$this->id);
+			$komponenty= $this->optionsDefault($komponenty,$this->stav);
+			$checked = $this->optionChecked($this->stav,$komponenty);
+			foreach($this->druhy as $druh)
+			{
+				if(isset($komponenty[$druh]))
+				{
+					foreach($komponenty[$druh] as $value)
+					{
+						if($checked[$value->id] == "checked")
+						{
+							$items[$value->id] = $this->model->getIdPrize(NULL,NULL,NULL,NULL,$value->id)->fetchSingle();
+						}
+					}
+				}
+			}
+			//Debug::dump($sideitems);
+
+		}
+		$cena = 0;
+		foreach($items as $value)
+		{
+			$cena += $value;
+		}
+			
+		return $cena;
+	}
+
+
 
 	public function actionKonfigurace($typ,$id)
 	{
@@ -224,14 +298,14 @@ class ObjednavkaPresenter extends TemplatePresenter
 	{
 		$this->session->doprava = $form->getValues();
 		$this->setStep();
-		$this->redirect("Objednavka:podminky",array('typ' => $this->typ, 'id' => $this->id));
+		$this->redirect("Objednavka:kosik",array('typ' => $this->typ, 'id' => $this->id));
 	}
 
 	public function KonfiguratorSubmitted($form)
 	{
 		$this->session->items = $form->getValues();
 		$this->setStep();
-		$this->redirect("Objednavka:kosik",array('typ' => $this->typ, 'id' => $this->id));
+		$this->redirect("Objednavka:doprava",array('typ' => $this->typ, 'id' => $this->id));
 	}
 	public function createComponentKonfigurator()
 	{
@@ -269,7 +343,10 @@ class ObjednavkaPresenter extends TemplatePresenter
 				$form->setDefaults(array($druh => $def));
 			}
 		}
-		$form->addSubmit('done','Odeslat');
+		$form->addSubmit('done','pokračovat');
+		$form['done']->getControlPrototype()->class = "button-green-mini button-mini-right";
+		$form['done']->getControlPrototype()->style = "padding-top: 0px;";
+
 		if(isset($this->session->items))
 		{
 			$form->setDefaults($this->session->items);
@@ -283,6 +360,103 @@ class ObjednavkaPresenter extends TemplatePresenter
 		$this->redirect("Objednavka:potvrzeni",array('typ' => $this->typ, 'id' => $this->id));
 	}
 
+	public function UdajeSubmitted($form)
+	{
+		$this->session->udaje = $form->getValues();
+		$this->setStep();
+		$this->redirect('Objednavka:podminky',array('typ' => $this->typ, 'id' => $this->id));
+	}
+
+	public function ButtonSubmitted($form)
+	{
+		$user = $this->getUser();
+		
+		$keys = array("jmeno", "prijmeni","email","ulice","mesto","psc","cp","ulice_d","mesto_d","cp_d","psc_d");
+		foreach($keys as $key)
+		{
+			//echo $user->getIdentity()->$key.",";
+			$this->session->udaje[$key] = $user->getIdentity()->$key;
+		}
+		Debug::dump($this->session);
+		$this->setStep();
+		$this->redirect('Objednavka:podminky',array('typ' => $this->typ, 'id' => $this->id));
+	}
+
+	public function createComponentUdaje()
+	{
+		$form = new AppForm($this,'udaje');
+		$form->onSubmit[] = callback($this, 'UdajeSubmitted');
+		$form->addProtection('Vypršel ochranný časový limit, odešlete prosím formulář ještě jednou');
+		$form->getElementPrototype()->class = "niceform";
+
+
+		$renderer = $form->getRenderer();
+		$renderer->wrappers['controls']['container'] = NULL;
+		$renderer->wrappers['pair']['container'] = NULL;
+		$renderer->wrappers['label']['container'] = NULL;
+		$renderer->wrappers['control']['container'] = NULL;
+
+		$form->addText('jmeno','Jméno:',50,50)
+		->addRule(Form::FILLED, 'Zadejte jméno');
+
+		$form->addText('prijmeni','Příjmení:',50,50)
+		->addRule(Form::FILLED, 'Zadejte příjmení');
+
+		$form->addText('email','E-mail:',50,50)
+		->addRule(Form::FILLED, 'Zadejte email')
+		->addRule(Form::EMAIL, 'Zadejte email');
+
+		$form->addText('ulice','Ulice:',50,50)
+		->addRule(Form::FILLED, 'Zadejte ulici');
+
+		$form->addText('mesto','mesto:',50,50)
+		->addRule(Form::FILLED, 'Zadejte mesto');
+
+		$form->addText('cp','Čp:',50,50)
+		->addRule(Form::FILLED, 'Zadejte číslo popisné');
+
+		$form->addText('psc','Psč:',50,50)
+		->addRule(Form::FILLED, 'Zadejte poštovní směrovací číslo');
+
+		$form->addText('ulice_d','Ulice:',50,50);
+
+		$form->addText('mesto_d','mesto:',50,50);
+
+		$form->addText('cp_d','Čp:',50,50);
+
+		$form->addText('psc_d','Psč:',50,50);
+
+		//$form->addSubmit('submit','Submit');
+		$form->addSubmit('done','pokračovat');
+		$form['done']->getControlPrototype()->class = "button-green-mini button-mini-right";
+		$form['done']->getControlPrototype()->style = "padding-top: 0px;";
+
+		if(isset($this->session->udaje))
+		{
+			$form->setDefaults($this->session->udaje);
+		}
+		return $form;
+	}
+
+	public function createComponentButton()
+	{
+		$form = new AppForm($this,'button');
+		$form->onSubmit[] = callback($this, 'ButtonSubmitted');
+		$form->addProtection('Vypršel ochranný časový limit, odešlete prosím formulář ještě jednou');
+		$form->getElementPrototype()->class = "niceform";
+
+
+		$renderer = $form->getRenderer();
+		$renderer->wrappers['controls']['container'] = NULL;
+		$renderer->wrappers['pair']['container'] = NULL;
+		$renderer->wrappers['label']['container'] = NULL;
+		$renderer->wrappers['control']['container'] = NULL;
+
+		$form->addSubmit('done','pokračovat');
+		$form['done']->getControlPrototype()->class = "button-green-mini button-mini-right";
+		$form['done']->getControlPrototype()->style = "padding-top: 0px;";
+		return $form;
+	}
 
 	public function createComponentDoprava()
 	{
@@ -308,6 +482,18 @@ class ObjednavkaPresenter extends TemplatePresenter
 		$form->addRadioList('platby',NULL,$platby)
 		->addRule(Form::FILLED, 'Vsechny položky musí být vypněny!');
 
+		$form->addSubmit('done','pokračovat');
+		$form['done']->getControlPrototype()->class = "button-green-mini button-mini-right";
+		$form['done']->getControlPrototype()->style = "padding-top: 0px;";
+
+		//$user = $this->getUser();
+		$identity = $this->getUser()->getIdentity();
+		//Debug::dump($identity);
+		if($this->getUser()->isAuthenticated())
+		{
+			$form->setDefaults(array('doprava' => $identity->doprava,'platby' => $identity->platby));
+		}
+
 		if(isset($this->session->doprava))
 		{
 			$form->setDefaults($this->session->doprava);
@@ -318,17 +504,48 @@ class ObjednavkaPresenter extends TemplatePresenter
 	{
 
 	}
-	public function actionKosik()
+	public function actionKosik($typ,$id)
 	{
-		$this->setStep();
+
 
 
 	}
 	public function renderKosik()
 	{
-
+		$doprava = explode(',',Environment::getConfig('doprava'));
+		$platby = explode(',',Environment::getConfig('platby'));
+		
+		$this->template->sestava = $this->session->sestava;
+		$days = Environment::getConfig('doprava_'.$this->session->doprava['doprava']);
+		$workdays = Environment::getConfig('doprava_'.$this->session->doprava['doprava'].'_workdays');
+		if($workdays)
+		{
+			$date = strtotime("+".$days." day");
+		}
+		else
+		{
+			$date = $this->dateFromBusinessDays((int)('+'.$days));
+		}
+		//echo Environment::getConfig('doprava_'.$this->session->doprava['doprava'].'_workdays');
+		$this->template->datum = date("d.m.Y", $date);
+		$this->template->doprava = $doprava[$this->session->doprava['doprava']];
+		
+		$this->template->platba = $platby[$this->session->doprava['platby']];
+		$this->session->doprava['doprava_cena'] = Environment::getConfig('doprava_'.$this->session->doprava['doprava'].'_cena');
+		$this->session->doprava['platba_cena'] = Environment::getConfig('platba_'.$this->session->doprava['platby']);
+		$this->template->doprava_cena = $this->session->doprava['doprava_cena'];
+		$this->template->platba_cena =$this->session->doprava['platba_cena'];
+		
+		
+		
+		
+		//$doprava_cena = 
+		
+		
+		//Debug::dump($this->session->doprava);
+		// $this->template->datum = $date = date("m.d.y", strtotime("+1. day"));*/
 	}
-	public function actionDoprava()
+	public function actionDoprava($typ,$id)
 	{
 
 
@@ -339,8 +556,15 @@ class ObjednavkaPresenter extends TemplatePresenter
 
 	}
 
+	public function handleConfirm()
+	{
+		$id = $this->model->createObjednavka($this->session->udaje,$this->session->sestava,($this->session->cena+$this->session->doprava['doprava_cena']));
+		$this->model->insertItems($this->session->items,$id);
+		$this->setStep();
+		$this->redirect("Objednavka:zaver",array('typ' => $this->typ, 'id' => $this->id));
+	}
 
-	public function actionPodminky()
+	public function actionPodminky($typ,$id)
 	{
 		//$this->setStep();
 	}
@@ -348,10 +572,11 @@ class ObjednavkaPresenter extends TemplatePresenter
 	{
 
 	}
-	public function actionPotvrzeni()
+	public function actionPotvrzeni($typ,$id)
 	{
 		$doprava = explode(',',Environment::getConfig('doprava'));
 		$platby = explode(',',Environment::getConfig('platby'));
+
 		$this->doprava = $doprava[$this->session->doprava['doprava']];
 		$this->platba = $platby[$this->session->doprava['platby']];
 		$this->setStep();
@@ -360,14 +585,20 @@ class ObjednavkaPresenter extends TemplatePresenter
 	{
 		$this->template->doprava = $this->doprava;
 		$this->template->platba = $this->platba;
+		
+		Debug::dump($this->session->doprava);
+		
+		$this->template->doprava_cena = $this->session->doprava['doprava_cena'];
+		//$this->template->platba = $this->platba;
+		
+		
 	}
-	public function actionZaver()
+	public function actionZaver($typ,$id)
 	{
-
 	}
 	public function renderZaver()
 	{
-
+	$this->session->remove();
 	}
 
 	public function checkStep()
@@ -398,7 +629,23 @@ class ObjednavkaPresenter extends TemplatePresenter
 
 
 
+	function dateFromBusinessDays($days, $dateTime=null) {
+		$dateTime = is_null($dateTime) ? time() : $dateTime;
+		$_day = 0;
+		$_direction = $days == 0 ? 0 : intval($days/abs($days));
+		$_day_value = (60 * 60 * 24);
 
+		while($_day !== $days) {
+			$dateTime += $_direction * $_day_value;
+
+			$_day_w = date("w", $dateTime);
+			if ($_day_w > 0 && $_day_w < 6) {
+				$_day += $_direction * 1;
+			}
+		}
+
+		return $dateTime;
+	}
 
 
 

@@ -38,6 +38,8 @@ abstract class BasePresenter extends Presenter
 		}
 		
 		$this->template->loginstatus = $logLink;
+		$this->template->user = $user;
+		$this->template->kosik = 0;
 		return;
 	}
 

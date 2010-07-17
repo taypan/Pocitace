@@ -1,0 +1,105 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font-family, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center, li, ul
+dl, dt, dd, li, ul, ol,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-size: 100%;
+	vertical-align: baseline;
+	background: transparent;
+}
+a:visited{color:#666;}
+
+
+body {
+	line-height: 1;
+	background-color: #000;
+	}
+	
+	
+a{text-decoration:none;}
+
+ol, ul {list-style: none;}
+
+blockquote, q {quotes: none;}
+
+blockquote:before, blockquote:after, q:before, q:after {content: ''; content: none;}
+
+:focus {outline: 0;}
+
+ins {text-decoration: none;}
+
+del {text-decoration: line-through;}
+
+table {border-collapse: collapse; border-spacing: 0;}
+
+/*end of reset*/
+
+#cont{width:988px; margin-left:auto; margin-right:auto;}
+
+#cCont{color: #999; width:651px; font-family:Verdana, Geneva, sans-serif; font-weight:normal; float: left; font-size:12px; text-decoration:none;}
+#cCont img{ margin-left:50px; float:left;}
+#cCont h3{ padding-left:50px;font-size:19px; font-weight:normal; padding-top:35px; padding-bottom:42px; color:#FFF;}
+#cCont h4{ font-size:12px; font-weight:normal; color:#FFF;}
+#cCont h5{ font-size:12px; font-weight:normal; color:#FFF;}
+#nahledCont{ padding-bottom:90px; width:600px; padding-top:12px; float:left; padding-left:50px;}
+#config{ width: 250px; height:211px; float:left; margin-left:35px; line-height:16px;}
+#config p{float:left;}
+#nahled{background-image:url(images/bg_03.gif); background-repeat:repeat; float:left; width:988px;}
+#logo{border:none; float:left;}
+
+	
+#subPIC{border:none; float:right; margin-right:47px; margin-top:-100px;}
+#Mcont{margin-top:48px; height:16px; float:left; margin-left:60px; width:300px;}
+#subheader{height:280px; float:left; width:987px;}
+#subTXT, #subTXTgaming, #subTXTpro, #subTXTdomaci, #subTXTkancl{ padding-left:18px; margin-top:125px; width:420px;}
+#subMenuCont{float:left; width:988px; height:43px;}
+
+#sidebarCont{background-image:url(images/bgl_03.gif); margin-left:50px; background-repeat:repeat; float:left; width:220px; height:400px; margin-top:100px}
+
+
+#zbozi a,p{font-family:Verdana, Geneva, sans-serif; font-size:12px; text-decoration:none; line-height:16px;	padding-top:7px;}
+#zbozi p{color:#999; padding-top:12px; width:247px; height:190px;}
+#zbozi a.nazev{color:#FFF;}
+#zbozi a.cena{color:#CCC;}
+#ld {padding-left:30px; color:#FFF; float: left;}
+
+#pc1, #pc2, #pc3, #pc4{background-image:url(images/zbozi1.jpg); width:187px; height:447px; border:none; padding-right:30px; padding-left:30px; float:left;}
+
+#sub1{background-image:url(images/sub_08.png);}
+#sub1i{background-image:url(images/sub_10.png);}
+#sub11{background-image:url(images/sub_08.png);	margin-left:5px;}	
+#sub2{background-image:url(images/sub_10.png); margin-left:5px;}
+#sub21{background-image:url(images/sub_10.png);}
+#sub3{background-image:url(images/sub_10.png); margin-left:5px;}
+#sub4{background-image:url(images/sub_10.png); margin-left:5px;}
+
+#sub1, #sub1i, #sub11, #sub2, #sub21, #sub3, #sub4{width:159px; height:29px; border:none; color:#666; font-family:Verdana, Geneva, sans-serif;
+font-size:14px; text-align:center; padding-top:14px; float:left;}
+
+#sub21:hover, #sub1i:hover, #sub4:hover, #sub3:hover, #sub2:hover{background-image:url(images/sub_08.png);}
+
+#subTXTgaming h1{color:#fff; font-family:Verdana, Geneva, sans-serif; font-size:29px; font-weight:normal; text-decoration:none;}
+#subTXTpro h1{color:#fff; font-family:Verdana, Geneva, sans-serif; font-size:29px; font-weight:normal; text-decoration:none;}
+#subTXTkancl h1{color:#fff; font-family:Verdana, Geneva, sans-serif; font-size:29px; font-weight:normal; text-decoration:none;}
+#subTXTdomaci h1{color:#fff; font-family:Verdana, Geneva, sans-serif; font-size:29px; font-weight:normal; text-decoration:none;}
+
+#subTXTgaming h2{ padding-top:4px; color: #669933; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:normal; text-decoration:none;}
+#subTXTpro h2{padding-top:4px; color: #993399;	font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:normal; text-decoration:none;}
+#subTXTkancl h2{padding-top:4px; color: #3399cc; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:normal;	text-decoration:none;}
+#subTXTdomaci h2{padding-top:4px; color: #cc9933; font-family:Verdana, Geneva, sans-serif; font-size:12px; font-weight:normal;	text-decoration:none;}
+
+.menuGAMING, .menuPRO, .menuDOMACI, .menuKANCL{color:#666; font-family:Verdana, Geneva, sans-serif; font-size:14px; text-decoration:none; float:left; padding-left:25px;}
+
+.menuDOMACI:hover{color: #cc9933;}
+.menuKANCL:hover{color: #3399cc;}
+.menuPRO:hover{color: #993399;}
+.menuGAMING:hover{color: #99cc33;}
+#nopadding, #nopadding1, #nopadding2, #nopadding3{ margin-left:-30px;}

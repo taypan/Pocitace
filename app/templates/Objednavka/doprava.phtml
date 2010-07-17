@@ -10,23 +10,22 @@
             
 {/block}
 {block obsah}
+{control doprava begin}
  <div id="config-cont" class="niceform">
     
-{control doprava begin}
+
 {control doprava errors}
     	{include #group, 'nazev' => 'Doprava', druh => doprava}
     	{include #group, 'nazev' => 'Platba', druh => platby}
   		{control doprava validation}
-    
-    <input type="submit">
-{control doprava end}
+
 </div>
     
     {include #sidebar}
 
 <div id="button-line">
-<a onclick="submit();" href=""><span class="button-green-mini button-mini-right">Pokračovat</span></a>
+{$control['doprava']['done']->control}
 {include #buttonZrusit}
 </div> 
 
-
+{control doprava end}

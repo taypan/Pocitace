@@ -1,0 +1,59 @@
+{block content}
+<div id="nahled">
+    <div id="cCont">
+        <h3>{$nadpis}</h3>
+        <hr>
+        <div class="formCont">
+        {if isset($komponenta)}
+        {widget editKomp}
+        {/if}
+        </div>
+        <br>
+         <a href="{link addkomponent}">Přidat komponentu</a>
+         <hr>
+        <table style="color:white">
+            <tr>
+                <th>
+                    Id
+                </th>
+                <th>
+                    Název
+                </th>
+                <th>
+                    Typ
+                </th>
+                <th>
+                    Cena bez Dph [Kč]
+                </th>
+                <th>
+                    Upravit
+                </th>
+                <th>
+                    Smazat
+                </th>
+            </tr>
+            {foreach $komponentyAll as $komponentaAll}
+            <tr>
+                <td>
+                    {$komponentaAll->id}
+                </td>
+                <td>
+                    {$komponentaAll->jmeno}
+                </td>
+                <td>
+                    {$komponentaAll->druh}
+                </td>
+                <td>
+                    {$komponentaAll->cena}
+                </td>
+                <td>
+                    <a href="{link Manager:komponenty,'id' => $komponentaAll->id}">Upravit</a>
+                </td>
+                <td>
+                    <a href="{link rmKomponenta!,'id' => $komponentaAll->id}">Smazat</a>
+                </td>
+            </tr>
+            {/foreach}
+        </table>
+    </div>
+</div>

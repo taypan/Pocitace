@@ -29,9 +29,9 @@ class LoginPresenter extends BasePresenter
 	}
 
 	public function renderLogout(){
-	$this->getUser()->signOut();
-	$flash = $this->flashMessage('Odhlášení proběhlo v pořádku');
-    $this->redirect('Sestavy:');
+		$this->getUser()->signOut();
+		$flash = $this->flashMessage('Odhlášení proběhlo v pořádku');
+		$this->redirect('Sestavy:');
 	}
 
 	protected function createComponentLogin()
@@ -42,6 +42,9 @@ class LoginPresenter extends BasePresenter
 		$form->addPassword('password', 'Heslo:');
 		$form['password']->getControlPrototype()->class('text');
 		//$form->addCheckbox('remember', 'Remember me on this computer');
+		$form->addSubmit('login','Přihlásit')
+		->getControlPrototype()->style = "margin-top: -4px;background-color: transparent;width: 80px;"
+		;//->getControlPrototype()->class = "button-green-mini button-mini-left-margin";
 		$form->onSubmit[] = callback($this, 'loginFormSubmitted');
 
 		return $form;
@@ -53,9 +56,9 @@ class LoginPresenter extends BasePresenter
 			$values = $form->values;
 			/*if ($values['remember']) {
 				$this->getUser()->setExpiration('+ 14 days', FALSE);
-			} else {
+				} else {
 				$this->getUser()->setExpiration('+ 20 minutes', TRUE);
-			}*/
+				}*/
 			$this->getUser()->setExpiration('+ 30 minutes', TRUE);
 			$this->getUser()->authenticate($values['username'], $values['password']);
 			$this->redirect('Sestavy:');

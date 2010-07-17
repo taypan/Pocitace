@@ -20,8 +20,38 @@ abstract class TemplatePresenter extends BasePresenter
 
 	var $typ;
 	var $id;
-	
-	
+
+	public function getSestavy($typ)
+	{
+		$result = array();
+		for($i = 1;$i !=5;$i++){
+			try{
+				$result[$i] = $this->model->fetchSestavy(NULL ,array('typ'=>$typ,'level' => $i))->fetch();
+			}
+			catch (Exception $e)
+			{
+			}
+		}
+		return $result;
+	}
+	public function getCeny($sestavy,$komponenty)
+	{
+		$this->template->sestavy = $sestavy;
+		$this->template->komponenty = $komponenty;
+
+
+		$ceny = array(1=> NULL,2=> NULL,3=> NULL,4=> NULL);
+		foreach($ceny as $key => $value)
+		{
+			$ceny[$key] =  $sestavy[$key]->cena;
+			foreach($komponenty[$key] as $komponenta)
+			{
+				$ceny[$key] +=  $komponenta->cena;
+			}
+		}
+		return $ceny;
+	}
+
 	public function startup()
 	{
 		parent::startup();
@@ -29,7 +59,9 @@ abstract class TemplatePresenter extends BasePresenter
 		$this->id = $this->getParam('id');
 		$this->template->headerimg = $this->getHeaderImg();
 		$this->template->slogan = $this->getHeaderSlogan();
+		$this->template->user = $this->getUser();
 		
+
 		$this->template->typ = $this->getParam('typ');
 		$this->template->id = $this->getParam('id');
 		$this->template->dph = Environment::getConfig('dph');
@@ -37,7 +69,7 @@ abstract class TemplatePresenter extends BasePresenter
 		return;
 	}
 
-	public	function getKomponenty($typ,$i = NULL)
+	public function getKomponenty($typ,$i = NULL)
 	{
 		if (is_null($i))
 		{
@@ -56,7 +88,7 @@ abstract class TemplatePresenter extends BasePresenter
 		{
 			try
 			{
-				$result[$i] = $this->model->fetchKomponenty(NULL ,array('typ'=>$typ,'level' => $i))->fetchAll();
+				$result[$i] = $this->model->fetchKomponenty(NULL ,array('typ'=>$typ,'level' => $i,'vychozi' => 'ano'))->fetchAll();
 			}
 			catch (Exception $e)
 			{
@@ -67,11 +99,11 @@ abstract class TemplatePresenter extends BasePresenter
 		{
 			return $result;
 		}
-		else 
+		else
 		{
 			return NULL;
 		}
-		
+
 	}
 	function getHeaderSlogan()
 	{

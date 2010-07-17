@@ -1,0 +1,15 @@
+{block content}
+<div id="nahled">
+<div id="cCont">
+	<h3>{$nadpis} - <a href="{link Detail:,'typ'=>$sestava->typ,'id'=>$sestava->level}">{$trans[$sestava->typ]} {$sestava->level}</a></h3>
+	<div id="nahledCont">
+	{foreach $komponenty as $komponenta}
+	{$komponenta->jmeno}</br>
+	{/foreach}
+	<div class="formCont">
+		{widget edit}
+		 </div>
+    </div>
+    </div>
+     
+</div>

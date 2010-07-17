@@ -148,8 +148,8 @@ label.chosen {
 /*Selects drop-down*/
 .optionsDivInvisible, .optionsDivVisible {
 	position:absolute;
-	margin-top:-1px;
-	margin-left:3px;
+	margin-top:-14px;
+	margin-left:10px;
 	width:172px;
 	background:#6f7074;
 	padding:2px;

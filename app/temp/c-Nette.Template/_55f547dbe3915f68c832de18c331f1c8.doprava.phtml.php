@@ -1,14 +1,14 @@
-<?php //netteCache[01]000243a:2:{s:4:"time";s:21:"0.41274900 1277895628";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:88:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/doprava.phtml";i:2;i:1277895607;}}}?><?php
+<?php //netteCache[01]000243a:2:{s:4:"time";s:21:"0.37450700 1279216350";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:88:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/doprava.phtml";i:2;i:1278009361;}}}?><?php
 // file …/templates/Objednavka/doprava.phtml
 //
 
-$_cb = LatteMacros::initRuntime($template, true, 'dd495fa3ef'); unset($_extends);
+$_cb = LatteMacros::initRuntime($template, true, '78a9f29c93'); unset($_extends);
 
 
 //
 // block group
 //
-if (!function_exists($_cb->blocks['group'][] = '_cbb70160b7042_group')) { function _cbb70160b7042_group() { extract(func_get_arg(0))
+if (!function_exists($_cb->blocks['group'][] = '_cbb33a7b23139_group')) { function _cbb33a7b23139_group() { extract(func_get_arg(0))
 ?>
 <h3><?php echo TemplateHelpers::escapeHtml($nazev) ?></h3>
        <div class="config-cont-box">
@@ -26,25 +26,24 @@ if (!function_exists($_cb->blocks['group'][] = '_cbb70160b7042_group')) { functi
 //
 // block obsah
 //
-if (!function_exists($_cb->blocks['obsah'][] = '_cbb73d38d90b7_obsah')) { function _cbb73d38d90b7_obsah() { extract(func_get_arg(0))
-?>
+if (!function_exists($_cb->blocks['obsah'][] = '_cbb99bc9222a4_obsah')) { function _cbb99bc9222a4_obsah() { extract(func_get_arg(0))
+;$control->getWidget("doprava")->render('begin') ?>
  <div id="config-cont" class="niceform">
     
-<?php $control->getWidget("doprava")->render('begin') ;$control->getWidget("doprava")->render('errors') ;call_user_func(reset($_cb->blocks['group']), array('nazev' => 'Doprava','druh' =>'doprava') + get_defined_vars()) ;call_user_func(reset($_cb->blocks['group']), array('nazev' => 'Platba','druh' =>'platby') + get_defined_vars()) ;$control->getWidget("doprava")->render('validation') ?>
-    
-    <input type="submit">
-<?php $control->getWidget("doprava")->render('end') ?>
+
+<?php $control->getWidget("doprava")->render('errors') ;call_user_func(reset($_cb->blocks['group']), array('nazev' => 'Doprava','druh' =>'doprava') + get_defined_vars()) ;call_user_func(reset($_cb->blocks['group']), array('nazev' => 'Platba','druh' =>'platby') + get_defined_vars()) ;$control->getWidget("doprava")->render('validation') ?>
+
 </div>
     
 <?php LatteMacros::callBlock($_cb->blocks, 'sidebar', get_defined_vars()) ?>
 
 <div id="button-line">
-<a onclick="submit();" href=""><span class="button-green-mini button-mini-right">Pokračovat</span></a>
+<?php echo TemplateHelpers::escapeHtml($control['doprava']['done']->control) ?>
+
 <?php LatteMacros::callBlock($_cb->blocks, 'buttonZrusit', get_defined_vars()) ?>
 </div> 
 
-
-<?php
+<?php $control->getWidget("doprava")->render('end') ;
 }}
 
 //

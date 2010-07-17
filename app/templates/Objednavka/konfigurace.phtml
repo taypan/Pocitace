@@ -15,27 +15,26 @@
 
 
 {block obsah}
-
+{control konfigurator begin}
     <div id="config-cont" class="niceform">
-    {control konfigurator begin}
+    
     {control konfigurator errors}
     	{foreach $druhy as $druh => $nazev}
     	{include #group, nazev => $nazev, druh => $druh}
     	{/foreach}
     	
     	{control konfigurator validation}
-    	<input type="submit">
-    	{control konfigurator end}
+    	
+    	
     	
         
     </div>
 
 {include #sidebar}
 <div id="button-line">
-<a onclick="submit();"><span class="button-green-mini button-mini-right">Pokračovat</span></a>
+{$control['konfigurator']['done']->control}
 {include #buttonZrusit}
 </div> 
-
-
+{control konfigurator end}
 
 

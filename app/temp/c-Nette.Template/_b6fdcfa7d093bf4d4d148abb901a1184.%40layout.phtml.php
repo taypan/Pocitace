@@ -1,14 +1,14 @@
-<?php //netteCache[01]000246a:2:{s:4:"time";s:21:"0.48619700 1277827859";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:91:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/../@layout.phtml";i:2;i:1277638643;}}}?><?php
+<?php //netteCache[01]000246a:2:{s:4:"time";s:21:"0.28176300 1279371062";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:91:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/../@layout.phtml";i:2;i:1279371060;}}}?><?php
 // file …/templates/Objednavka/../@layout.phtml
 //
 
-$_cb = LatteMacros::initRuntime($template, NULL, '462f4ff489'); unset($_extends);
+$_cb = LatteMacros::initRuntime($template, NULL, 'd729698ee0'); unset($_extends);
 
 
 //
 // block subheader
 //
-if (!function_exists($_cb->blocks['subheader'][] = '_cbb55811c9aec_subheader')) { function _cbb55811c9aec_subheader() { extract(func_get_arg(0))
+if (!function_exists($_cb->blocks['subheader'][] = '_cbb9c13352836_subheader')) { function _cbb9c13352836_subheader() { extract(func_get_arg(0))
 ;echo TemplateHelpers::escapeHtml($slogan) ;
 }}
 
@@ -16,8 +16,8 @@ if (!function_exists($_cb->blocks['subheader'][] = '_cbb55811c9aec_subheader')) 
 //
 // block subheader_img
 //
-if (!function_exists($_cb->blocks['subheader_img'][] = '_cbb8c4237a78e_subheader_img')) { function _cbb8c4237a78e_subheader_img() { extract(func_get_arg(0))
-;echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/<?php echo TemplateHelpers::escapeHtml($typ) ?>_4_sub.jpg<?php
+if (!function_exists($_cb->blocks['subheader_img'][] = '_cbb02baf5cc56_subheader_img')) { function _cbb02baf5cc56_subheader_img() { extract(func_get_arg(0))
+;echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/<?php if (isset($typ)): echo TemplateHelpers::escapeHtml($typ) ;else: ?>game<?php endif ?>_4_sub.jpg<?php
 }}
 
 //
@@ -40,7 +40,11 @@ if (SnippetHelper::$outputAllowed) {
 <title>Počítače Omnique</title>
 <link href="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/form.css" rel="stylesheet" type="text/css" />
 <link href="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/style.css" rel="stylesheet" type="text/css" />
+<link href="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/dgstyle.css" rel="stylesheet" type="text/css" />
+
 <script language="JavaScript" type="text/javascript" src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/js/form.js"></script>
+<script language="JavaScript" type="text/javascript" src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/js/dgscripts.js"></script>
+
   <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="<?php echo TemplateHelpers::escapeHtmlComment($basePath) ?>/css/megamrdka.css">
 <![endif]-->
@@ -52,10 +56,15 @@ if (SnippetHelper::$outputAllowed) {
 	<a class="menuGAMING" href="#">O NÁS</a>
 	<a class="menuGAMING" href="#">NABÍDKA</a>
 	<a class="menuGAMING" href="#">KONTAKT</a>
+<?php if ($user->isInRole('administrator')): ?>
+	<a class="menuGAMING" href="<?php echo TemplateHelpers::escapeHtml($control->link("Manager:sestavy")) ?>">Sestavy</a>
+	<a class="menuGAMING" href="<?php echo TemplateHelpers::escapeHtml($control->link("Manager:komponenty")) ?>">Komponenty</a>
+	
+<?php endif ?>
 </div>
 
 <div id="login-cont">
-<div id="kosik-gaming-link" class="gaming">v <a href="#">košíku</a> máte X položek</div>
+<div id="kosik-gaming-link" class="gaming">v košíku máte <?php echo TemplateHelpers::escapeHtml($kosik) ?> položek</div>
 <div id="login-link"><?php echo TemplateHelpers::escapeHtml($loginstatus) ?>
 
 </div>
@@ -77,7 +86,9 @@ if (SnippetHelper::$outputAllowed) {
 <?php foreach ($iterator = $_cb->its[] = new SmartCachingIterator($flashes) as $flash): ?>
 <div style="position:absolute;top: 430px;left: 500px;color: white;" class="flash <?php echo TemplateHelpers::escapeHtml($flash->type) ?>"><?php echo TemplateHelpers::escapeHtml($flash->message) ?></div>
 <?php endforeach; array_pop($_cb->its); $iterator = end($_cb->its) ;LatteMacros::callBlock($_cb->blocks, 'content', get_defined_vars()) ?>
-
+<img src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/reklama_1.jpg" width="492" height="105" id="reklama1" />
+<img src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/reklama_2.jpg" width="243" height="105" id="reklama2" />
+<img src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/reklama_3.jpg" width="245" height="105" id="reklama3" />
 <div id="footer">
 
 

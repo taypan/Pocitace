@@ -10,7 +10,11 @@
 <title>Počítače Omnique</title>
 <link href="{$basePath}/css/form.css" rel="stylesheet" type="text/css" />
 <link href="{$basePath}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$basePath}/css/dgstyle.css" rel="stylesheet" type="text/css" />
+
 <script language="JavaScript" type="text/javascript" src="{$basePath}/js/form.js"></script>
+<script language="JavaScript" type="text/javascript" src="{$basePath}/js/dgscripts.js"></script>
+
   <!--[if IE 6]>
 <link rel="stylesheet" type="text/css" href="{$basePath}/css/megamrdka.css">
 <![endif]-->
@@ -22,10 +26,15 @@
 	<a class="menuGAMING" href="#">O NÁS</a>
 	<a class="menuGAMING" href="#">NABÍDKA</a>
 	<a class="menuGAMING" href="#">KONTAKT</a>
+	{if $user->isInRole('administrator')}
+	<a class="menuGAMING" href="{link Manager:sestavy}">Sestavy</a>
+	<a class="menuGAMING" href="{link Manager:komponenty}">Komponenty</a>
+	
+	{/if}
 </div>
 
 <div id="login-cont">
-<div id="kosik-gaming-link" class="gaming">v <a href="#">košíku</a> máte X položek</div>
+<div id="kosik-gaming-link" class="gaming">v košíku máte {$kosik} položek</div>
 <div id="login-link">{$loginstatus}
 </div>
 </div>
@@ -34,7 +43,7 @@
 		<h1>{block #subheader}{$slogan}{/block}</h1>
 		<h2>S POČÍTAČI OMNIQUE</h2>
 	</div>
-	<img src="{block #subheader_img}{$basePath}/css/images/{$typ}_4_sub.jpg{/block}" alt="PC" width="328" height="206" id="subPIC" />
+	<img src="{block #subheader_img}{$basePath}/css/images/{if isset($typ)}{$typ}{else}game{/if}_4_sub.jpg{/block}" alt="PC" width="328" height="206" id="subPIC" />
 </div>
 <div id="subMenuCont">
 	<a id="{ifCurrent Sestavy:, typ => game}sub1{else}sub21{/if}" href="{link Sestavy:game}">GAMING</a>
@@ -47,7 +56,9 @@
 <div style="position:absolute;top: 430px;left: 500px;color: white;" class="flash {$flash->type}">{$flash->message}</div>
 {/foreach}
             {include #content}
-
+<img src="{$basePath}/css/images/reklama_1.jpg" width="492" height="105" id="reklama1" />
+<img src="{$basePath}/css/images/reklama_2.jpg" width="243" height="105" id="reklama2" />
+<img src="{$basePath}/css/images/reklama_3.jpg" width="245" height="105" id="reklama3" />
 <div id="footer">
 
 

@@ -17,9 +17,53 @@
  */
 class SestavyPresenter extends TemplatePresenter
 {
+	var $sestavy;
+	var $komponenty;
+	var $ceny;
+	
 	public function getModel()
 	{
 		return new SestavyModel;
+	}
+
+	public function actionDefault($typ)
+	{
+		//$sestavy = $this->model->fetchSestavy(NULL,$where)->fetchAll();
+		$this->sestavy = $this->model->fetchSestavy('level',array('typ' => $typ))->fetchAll();
+		$sestavy[1] = $this->sestavy[0];
+		$sestavy[2] = $this->sestavy[1];
+		$sestavy[3] = $this->sestavy[2];
+		$sestavy[4] = $this->sestavy[3];
+		$this->sestavy = $sestavy;
+		
+		//$this->sestavy = array("Orange")+ $this->sestavy; 
+		//Debug::dump($this->sestavy);
+		foreach($this->sestavy as $key => $sestava)
+		{
+			
+			$cena = $this->model->getCena(NULL, array('typ' => $typ,'level' => $key,'vychozi' => 'ano'))->fetchSingle();
+			
+			$this->ceny[$key] = $sestava->cena + $cena;
+		}
+		
+		//Debug::dump($this->ceny);
+		$where = array('typ' => $typ,'vychozi' => 'ano');
+		$komps = $this->model->fetchKomps('druh',$where)->fetchAll();
+		//Debug::dump($komps);
+		
+		$data = array();
+		foreach($komps as $komponenta)
+		{
+			$data[$komponenta->level][$komponenta->id_komponenta] = $komponenta;
+		}
+		$this->komponenty = $data;
+		
+		
+		
+
+		//Debug::dump($data);
+		
+		
 	}
 
 	public function renderDefault($typ)
@@ -28,9 +72,13 @@ class SestavyPresenter extends TemplatePresenter
 
 		//$path = "../app/templates/".$this->getName();
 		//$this->template->setFile($path."/".$typ.".phtml");
-		$this->template->sestavy = $this->getSestavy($typ);
-		$this->template->komponenty = $this->getKomponenty($typ);
+		//$sestavy = $this->sestavy;
+		//$komponenty = $this->getKomponenty($typ);
+		//Debug::dump($komponenty);
 		
+		$this->template->komponenty = $this->komponenty;
+		$this->template->sestavy = $this->sestavy;
+		$this->template->ceny = $this->ceny;
 		$this->template->typ = $typ;
 		$this->template->action = $this->getAction();
 		$this->template->iterace = array(1,2,3,4);
@@ -49,25 +97,11 @@ class SestavyPresenter extends TemplatePresenter
 				$this->template->color = 'orange';
 				break;
 			default: 'green';
-				$this->template->color = 'orange';
+			$this->template->color = 'orange';
 		}
-		
+
 		//Debug::dump($this->template->color);
 	}
 
-
-	private function getSestavy($typ)
-	{
-		$result = array();
-		for($i = 1;$i !=5;$i++){
-			try{
-				$result[$i] = $this->model->fetchSestavy(NULL ,array('typ'=>$typ,'level' => $i))->fetch();
-			}
-			catch (Exception $e)
-			{
-			}
-		}
-		return $result;
-	}
 
 }

@@ -17,77 +17,79 @@
 <div class="celkem">
   <h3>Celkem</h3></div>
 </div>
-<div class="check"><input type="checkbox" /></div>
-<div class="name padding-top">asdasdasdasd</div>
-<div class="pocet padding-top">999</div>
-<div class="datum padding-top">12.12. 2012</div>
-<div class="cena-bez-dph padding-top">999 999 Kč</div>
-<div class="cena-s-dph padding-top">195 185 Kč</div>
-<div class="celkem padding-top">195 185 Kč</div>
 
-<div class="check"><input type="checkbox" /></div>
-<div class="name padding-top">asdasdasdasd</div>
-<div class="pocet padding-top">999</div>
-<div class="datum padding-top">12.12. 2012</div>
-<div class="cena-bez-dph padding-top">999 999 Kč</div>
-<div class="cena-s-dph padding-top">195 185 Kč</div>
-<div class="celkem padding-top">195 185 Kč</div>
+<div class="check"><input type="checkbox"/></div>
+<div class="name padding-top">{$sestava->nazev}</div>
+<div class="pocet padding-top">1</div>
+<div class="datum padding-top">{$datum}</div>
+<div class="cena-bez-dph padding-top">{$cena|number:0:',':' '}, - Kč</div>
+<div class="cena-s-dph padding-top">{$cena*$dph|number:0:',':' '}, - Kč</div>
+<div class="celkem padding-top">{$cena*$dph|number:0:',':' '}, - Kč</div>
 
-<div class="check"><input type="checkbox" /></div>
-<div class="name padding-top">asdasdasdasd</div>
-<div class="pocet padding-top">999</div>
-<div class="datum padding-top">12.12. 2012</div>
-<div class="cena-bez-dph padding-top">999 999 Kč</div>
-<div class="cena-s-dph padding-top">195 185 Kč</div>
-<div class="celkem padding-top">195 185 Kč</div>
+<div class="check"><input type="checkbox"/></div>
+<div class="name padding-top">Doprava - {$doprava}</div>
+<div class="pocet padding-top">1</div>
+<div class="datum padding-top"></div>
+<div class="cena-bez-dph padding-top">{$doprava_cena|number:0:',':' '}, - Kč</div>
+<div class="cena-s-dph padding-top">{$doprava_cena*$dph|number:0:',':' '}, - Kč</div>
+<div class="celkem padding-top">{$doprava_cena*$dph|number:0:',':' '}, - Kč</div>
+
+<div class="check"><input type="checkbox"/></div>
+<div class="name padding-top">Celkem</div>
+<div class="pocet padding-top"></div>
+<div class="datum padding-top"></div>
+<div class="cena-bez-dph padding-top">{$doprava_cena+$cena|number:0:',':' '}, - Kč</div>
+<div class="cena-s-dph padding-top">{$doprava_cena*$dph+$cena*$dph|number:0:',':' '}, - Kč</div>
+<div class="celkem padding-top">{$doprava_cena*$dph+$cena*$dph|number:0:',':' '}, - Kč</div>
+
 </div>
 
 
  
 <div id="button-line-kosik">
-<a href="#"><span class="button-grey-mini button-mini-left">smazat</span></a>
-
+<a onClick="if(confirm('Opravdu si přejete odstranit sestavu z objednávky?')) location.href = {link cancel!};">
+<span class="button-grey-mini button-mini-left">smazat</span>
+</a>
 </div>
-
+{if $user->isAuthenticated()}
+{control button begin}
+<div id="button-line">
+{$control['button']['done']->control}
+{include #buttonZrusit}
+</div>
+{control button end}
+{else}
+{control udaje begin}
 <div id="not-logged-cont">Nejste přihlášen/a. Prosím <a href="login.html">přihlaste se</a> nebo vyplňte kontaktní údaje</div>
 <div class="split"></div>
 
-<form action="vars.php" method="post" class="niceform" target="_blank">
 
 	<div class="formCont">
     
     <h3>Osobní</h3>
-   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Jméno:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Příjmení:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Jméno:</div> {$control['udaje']['jmeno']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Příjmení:</div> {$control['udaje']['prijmeni']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">E-mail:</div> {$control['udaje']['email']->control}</div><br /><br /><br />
     
       <h3>Adresa</h3>
-   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-     
-           <h3>Doručovací adresa</h3>
-   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> <input type="text" class="inp" name="textinput" size="12" /></div><br /><br /><br />
-     
- </div> 
- <div class="formCont">
- <h3>Způsob platby</h3>
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> {$control['udaje']['ulice']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> {$control['udaje']['mesto']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> {$control['udaje']['cp']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Psč:</div> {$control['udaje']['psc']->control}</div><br /><br /><br />
+           <h3>Doručovací adresa*</h3>
+           
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> {$control['udaje']['ulice_d']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> {$control['udaje']['mesto_d']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> {$control['udaje']['cp_d']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Psč:</div> {$control['udaje']['psc_d']->control}</div><br /><br /><br />
+     *Pokud je shodná s adresou nemusí být vyplněna
+     </div>
+ {control udaje validation}
 
- <input type="radio" name="radioSet" id="option1" value="prevod" checked="checked" /><label for="option1">převodem</label><br /><br /><br />
-	<input type="radio" name="radioSet" id="option2" value="hotovost" /><label for="option2">hotovost</label><br /><br /><br />
-    
-
- <h3>Doprava</h3>
- <input type="radio" name="radioSet2" id="option3" value="ceska posta" checked="checked" /><label for="option3">Česká pošta</label><br /><br /><br />
-	<input type="radio" name="radioSet2" id="option4" value="ppl" /><label for="option4">PPL</label><br /><br /><br />
- </div>  
-</form>
 
 <div id="button-line">
-
-
-
-<a href="#"><span class="button-green-mini button-mini-right">koupit</span></a>
-<a href="#"><span class="button-grey-mini button-mini-right">koupit</span></a>
+{$control['udaje']['done']->control}
+{include #buttonZrusit}
 </div>
+{control udaje end}
+{/if}

@@ -1,8 +1,8 @@
-<?php //netteCache[01]000238a:2:{s:4:"time";s:21:"0.92993200 1277843462";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:83:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Login/@layout.phtml";i:2;i:1277481846;}}}?><?php
+<?php //netteCache[01]000238a:2:{s:4:"time";s:21:"0.65410600 1279216289";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:83:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Login/@layout.phtml";i:2;i:1277481846;}}}?><?php
 // file …/templates/Login/@layout.phtml
 //
 
-$_cb = LatteMacros::initRuntime($template, NULL, 'abcb1d4683'); unset($_extends);
+$_cb = LatteMacros::initRuntime($template, NULL, '28be7663bf'); unset($_extends);
 
 if (SnippetHelper::$outputAllowed) {
 ?>

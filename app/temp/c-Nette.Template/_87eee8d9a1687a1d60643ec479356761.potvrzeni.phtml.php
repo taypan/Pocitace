@@ -1,87 +1,73 @@
-<?php //netteCache[01]000245a:2:{s:4:"time";s:21:"0.60664500 1277894826";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:90:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/potvrzeni.phtml";i:2;i:1277894825;}}}?><?php
+<?php //netteCache[01]000245a:2:{s:4:"time";s:21:"0.37336000 1279300122";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:90:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/potvrzeni.phtml";i:2;i:1279300120;}}}?><?php
 // file …/templates/Objednavka/potvrzeni.phtml
 //
 
-$_cb = LatteMacros::initRuntime($template, true, '792021b056'); unset($_extends);
+$_cb = LatteMacros::initRuntime($template, true, '433a1dbab1'); unset($_extends);
 
 
 //
 // block obsah
 //
-if (!function_exists($_cb->blocks['obsah'][] = '_cbb3c5c20e6d2_obsah')) { function _cbb3c5c20e6d2_obsah() { extract(func_get_arg(0))
+if (!function_exists($_cb->blocks['obsah'][] = '_cbbf7e202e4e9_obsah')) { function _cbbf7e202e4e9_obsah() { extract(func_get_arg(0))
 ?>
-
 <div id="zuctovani-cont">
-	<h3>EXPERIENCED GAMER</h3>
-	<img src="http://pocitace.omnique.cz/css/images/c310_sub.jpg" alt="case" width="170px" height="206px" />
-	<div class="config zuctovani">
-	  <h4>KOMPONENTY:</h4>
-	  <p class="komponenty">
-<?php foreach ($iterator = $_cb->its[] = new SmartCachingIterator($sideitems) as $sideitem): ?>
-			<?php echo TemplateHelpers::escapeHtml($sideitem) ?></br>
-<?php endforeach; array_pop($_cb->its); $iterator = end($_cb->its) ?>
-      </p>
-     
-
-
-     
-    </div>
-      <div class="config zuctovani">
-	  <h4>VOLITELNÉ SOUČÁSTI:</h4>
-	  <p class="komponenty">
-	    AMD Phenom II X4 925
-	    <br />Single ATI HD5770 1GB
-	    <br /> Asus M4A79XTD EVO 790X
-	    <br />Kingston DIMM 4096MB DDR III 1600MHz
-	    <br /> Samsung SpinPoint F3 - 1TB
-	    <br />CoolerMaster Elite
-	    <br />Zalman CU Cooler 
-	    <br /> PSU Seasonic 80+
-      </p>
-     
-
-
-
-     
-    </div>
+    <h3>EXPERIENCED GAMER</h3>
+    <img src="<?php echo TemplateHelpers::escapeHtml($basePath) ?>/css/images/<?php echo TemplateHelpers::escapeHtml($sestava->case) ?>" alt="case" width="170px" height="206px" />
     <div class="config zuctovani">
-     <h4>DOPRAVA:</h4>
-	 <p> 
-	    <?php echo TemplateHelpers::escapeHtml($doprava) ?>
+        <h4>KOMPONENTY:</h4>
+        <p class="komponenty">
+<?php foreach ($iterator = $_cb->its[] = new SmartCachingIterator($sideitems) as $sideitem): ?>
+        <?php echo TemplateHelpers::escapeHtml($sideitem) ?>
 
-	    </p>
-	    <br /><br /> <br />
+        </br>
+<?php endforeach; array_pop($_cb->its); $iterator = end($_cb->its) ?>
+    </p>
+</div>
+<div class="config zuctovani">
+    <h4>VOLITELNÉ SOUČÁSTI:</h4>
+    <p class="komponenty">
+    </p>
+</div>
+<div class="config zuctovani">
+    <h4>DOPRAVA:</h4>
+    <p>
+        <?php echo TemplateHelpers::escapeHtml($doprava) ?>
 
-      
-	
-	  <h4>PLATBA:</h4>
-	    
-	    <p>
-	      <?php echo TemplateHelpers::escapeHtml($platba) ?>
+    </p>
+    <br/>
+    <br/>
+    <br/>
+    <h4>PLATBA:</h4>
+    <p>
+        <?php echo TemplateHelpers::escapeHtml($platba) ?>
 
-	      <br />
-	    </p>
-	 
-     
-
-
-
-     
+        <br/>
+    </p>
+</div>
+<div id="zuctovani-end">
+    <div class="price-nahledCont">
+        <div class="price-nahledDPH">
+            S DPH
+        </div>
+        <div class="price-nahledPrice">
+            <?php echo TemplateHelpers::escapeHtml($template->number($cena*$dph+$doprava_cena*$dph, 0, ',', ' ')) ?>, - Kč
+        </div>
     </div>
-  
-    
-  <div id="zuctovani-end"> 
-             
-
-         <div class="price-nahledCont">
-      <div class="price-nahledDPH">S DPH</div>
-      <div class="price-nahledPrice">25 000, - Kč</div></div>
-      <div class="price-nahledCont">
-      <div class="price-nahledNoDPH">bez DPH</div>
-      <div class="price-nahledNoDPHprice">25 000, - Kč</div></div>      <a href="gaming/experienced_gamer"><span class="button-green nahled-button-margin-top zuctovani-button">konfiguruj</span></a>
-      <a href="gaming/experienced_gamer"><span class="button-grey-mini button-mini-left nahled-button-margin-top">koupit</span></a></div>
-    
-    </div><?php
+    <div class="price-nahledCont">
+        <div class="price-nahledNoDPH">
+            bez DPH
+        </div>
+        <div class="price-nahledNoDPHprice">
+            <?php echo TemplateHelpers::escapeHtml($template->number($cena+$doprava_cena, 0, ',', ' ')) ?>, - Kč
+        </div>
+    </div>
+    <div style="margin-top:50px">
+<?php LatteMacros::callBlock($_cb->blocks, 'buttonZrusit', get_defined_vars()) ?>
+		<a href="<?php echo TemplateHelpers::escapeHtml($control->link("confirm!")) ?>"><span class="button-green nahled-button">koupit</span></a>
+    </div>
+</div>
+</div>
+<?php
 }}
 
 //

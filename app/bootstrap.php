@@ -14,6 +14,8 @@
 // you don't have to litter your code with 'require' statements
 require LIBS_DIR . '/Nette/loader.php';
 require LIBS_DIR . '/dibi/dibi.php';
+require LIBS_DIR . '/Validators/MyValidators.php';
+require LIBS_DIR . '/phpMyDataGrid/phpmydatagrid.class.php';
 
 if(!function_exists('sha256')){
 	require LIBS_DIR . '/sha256/sha256.php';
@@ -59,25 +61,50 @@ $router[] = new Route('sestavy/<typ game|office|pro|home>', array(
     'typ' => 'game',
 ));
 
-$router[] = new Route('detail/<typ>/<id [1-4]>', array(
+$router[] = new Route('<id [1-4]>-<typ>', array(
 	'presenter' => 'Detail',
 	'action' => 'default',
     'typ' => NULL,
 	'id' => NULL,
 ));
 
-$router[] = new Route('objednavka/<typ>/<id>/<action>', array(
+$router[] = new Route('<id [1-4]>-<typ game|office|pro|home>/<action>/<do>', array(
 	'presenter' => 'Objednavka',
-	'action' => 'konfigurace',
-	'typ' => 'game',
-	'id' => 1,
+	'do' => NULL,
 ));
 
-$router[] = new Route('<presenter>/<action>/<id>', array(
+$router[] = new Route('objednavka/<id [1-4]>-<typ game|office|pro|home>/<action>/<do>', array(
+	'presenter' => 'Objednavka',
+	'do' => NULL,
+));
+$router[] = new Route('texty/<ident>', array(
+	'presenter' => 'Texty',
+	'action' => 'default',
+));
+$router[] = new Route('registrace/<action validate|newpass>/<id>/<hash>/[<do>]', array(
+	'presenter' => 'Registrace',
+	'action' => 'validate',
+));
+//addkomp-submit/
+$router[] = new Route('manager/addkomponent/[<do>]', array(
+	'presenter' => 'Manager',
+	'action' => 'addkomponent',
+	'id' => NULL,
+));
+
+$router[] = new Route('manager/<action>/[<id>]/[s=<sestava>][<do>]', array(
+	'presenter' => 'Manager',
+	'action' => 'sestavy',
+	'id' => NULL,
+));
+
+$router[] = new Route('<presenter>/<action>/[<do>]', array(
 	'presenter' => 'Sestavy',
 	'action' => 'default',
 	'id' => NULL,
 ));
+
+
 
 
 

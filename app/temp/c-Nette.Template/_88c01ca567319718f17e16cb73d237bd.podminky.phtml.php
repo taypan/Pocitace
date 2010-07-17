@@ -1,14 +1,14 @@
-<?php //netteCache[01]000244a:2:{s:4:"time";s:21:"0.59965000 1277897419";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:89:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/podminky.phtml";i:2;i:1277895618;}}}?><?php
+<?php //netteCache[01]000244a:2:{s:4:"time";s:21:"0.94571000 1279216370";s:9:"callbacks";a:1:{i:0;a:3:{i:0;a:2:{i:0;s:5:"Cache";i:1;s:9:"checkFile";}i:1;s:89:"/home/jirka/Omnique/Omnique_shop/document_root/../app/templates/Objednavka/podminky.phtml";i:2;i:1278010288;}}}?><?php
 // file …/templates/Objednavka/podminky.phtml
 //
 
-$_cb = LatteMacros::initRuntime($template, true, '4f8d0a447f'); unset($_extends);
+$_cb = LatteMacros::initRuntime($template, true, '6f3b09a984'); unset($_extends);
 
 
 //
 // block obsah
 //
-if (!function_exists($_cb->blocks['obsah'][] = '_cbbe1bba75d81_obsah')) { function _cbbe1bba75d81_obsah() { extract(func_get_arg(0))
+if (!function_exists($_cb->blocks['obsah'][] = '_cbb1d9b5f4ad5_obsah')) { function _cbb1d9b5f4ad5_obsah() { extract(func_get_arg(0))
 ?>
 
 <div id="smlouva-cont">
@@ -26,7 +26,6 @@ Nullam in congue metus. Sed rhoncus iaculis urna et pulvinar. Ut in felis massa,
  
  <div id="button-line">
 
-<input type="submit">
 <a href="<?php echo TemplateHelpers::escapeHtml($control->link("agree!")) ?>"><span class="button-green-mini button-mini-right">Souhlasím</span></a>
 <?php LatteMacros::callBlock($_cb->blocks, 'buttonZrusit', get_defined_vars()) ?>
 </div> <?php

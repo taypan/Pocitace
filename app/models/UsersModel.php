@@ -34,7 +34,7 @@ class UsersModel extends Object implements IAuthenticator
 
 		$username = $credentials[self::USERNAME];
 		$password = sha256(sha256(sha256(sha256($credentials[self::PASSWORD].$salt1.$credentials[self::USERNAME]).$salt2).$salt3).$salt4);
-		$row = dibi::fetch('SELECT * FROM users WHERE username=%s', $username);
+		$row = dibi::fetch('SELECT * FROM users WHERE username=%s AND valid=\'ano\'', $username);
 
 		if (!$row) {
 			throw new AuthenticationException("Uživatel '$username' nebyl nalezen.", self::IDENTITY_NOT_FOUND);
