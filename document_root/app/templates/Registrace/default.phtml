@@ -1,0 +1,67 @@
+{block group}
+<h3>{$nazev}*</h3>
+       <div class="config-cont-box">
+       
+            {$control['registrace'][$druh]->control}
+       
+        </div>
+
+            
+{/block}
+
+{block buttonZrusit}
+<a onClick="if(confirm('Opravdu odstranit věškeré informace o  objednávce?')) location.href = {link Sestavy:default};">
+<span class="button-grey-mini button-mini-right">zrušit</span>
+</a>
+{/block}
+
+{block content}
+<div id="nahled">
+{control registrace begin}
+
+
+
+	<div class="formCont">
+    {control registrace errors}
+    <h3>Osobní</h3>
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Jméno:</div> {$control['registrace']['jmeno']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Příjmení:</div> {$control['registrace']['prijmeni']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">E-mail:</div> {$control['registrace']['email']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Uživ. jméno:</div> {$control['registrace']['username']->control}</div><br /><br /><br />
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Heslo:</div> {$control['registrace']['password']->control}</div><br /><br /><br />
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Heslo znovu:</div> {$control['registrace']['password2']->control}</div><br /><br /><br /> 
+    
+      <h3>Adresa</h3>
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> {$control['registrace']['ulice']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> {$control['registrace']['mesto']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> {$control['registrace']['cp']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Psč:</div> {$control['registrace']['psc']->control}</div><br /><br /><br />
+           <h3>Doručovací adresa*</h3>
+           
+   <div class="formContText"><div class="hvezda"></div><div class="formPopis">Ulice:</div> {$control['registrace']['ulice_d']->control}</div><br /><br /><br />
+    <div class="formContText"><div class="hvezda"></div><div class="formPopis">Město:</div> {$control['registrace']['mesto_d']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Čp:</div> {$control['registrace']['cp_d']->control}</div><br /><br /><br />
+     <div class="formContText"><div class="hvezda"></div><div class="formPopis">Psč:</div> {$control['registrace']['psc_d']->control}</div><br /><br /><br />
+     *Pokud je shodná s adresou nemusí být vyplněna
+     </div>
+     <div class="formCont">
+     
+ {include #group, 'nazev' => 'Způsob platby', druh => platby}
+ *Preferovaný způsob. Později může být změněn.
+  </br>
+ {include #group, 'nazev' => 'Doprava', druh => doprava}
+ *Preferovaný způsob. Později může být změněn.    
+ </div> 
+ {control registrace validation}
+
+
+<div id="button-line">
+{include #buttonZrusit}
+{$control['registrace']['done']->control}
+
+</div>
+{control registrace end}
+ </div>  
+ 
+ 
+ 

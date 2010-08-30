@@ -1,0 +1,13 @@
+{assign robots => noindex} {block #content}
+<p>PŘIHLÁŠENÍ:</p>
+{$form->render('begin')}
+{foreach $flashes as $flash}
+<div class="flash {$flash->type}">{$flash->message}</div>
+{/foreach}
+<div style="position:absolute;top:345px">{$form->render('errors')}</div>
+<div class="loginBox">{!$form['username']->label} {!$form['username']->control}</div>
+<div class="loginBox">{!$form['password']->label} {!$form['password']->control}</div>
+<a onclick="submit();"><span class="button-green-mini button-mini-left-margin">{$form['login']->control}</span></a>
+<a href="{link Registrace:default}"><span class="button-grey-mini">registrace</span></a>
+<a href="{link Registrace:forgotpass}" id="lostPWD">Zapoměli jste heslo?</a>
+{$form->render('end')}

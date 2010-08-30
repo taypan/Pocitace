@@ -1,0 +1,50 @@
+{extends innerLayout.phtml}
+
+{block group}
+{if isset($control['konfigurator'][$druh])}
+<div>
+<h3>{$nazev}</h3>
+       <div class="config-cont-box">
+       
+            {$control['konfigurator'][$druh]->control}
+       
+        </div>
+		</div>
+        {/if}            
+{/block}
+
+
+{block obsah}
+{control konfigurator begin}
+    <div id="config-cont" class="niceform">
+    
+    {control konfigurator errors}
+    	{foreach $druhy as $druh => $nazev}
+    	{include #group, nazev => $nazev, druh => $druh}
+    	{/foreach}
+    	
+    	{control konfigurator validation}
+    	
+    	
+    	
+        
+    </div>
+
+{include #sidebar}
+<script type="text/javascript">
+                    <!--
+                    //
+                    var scsmt = 66;
+                    var scsdf = 85;
+                    var scsmo = 30;
+                    var scsot = 557;
+                    price_reload_init();
+                    // -->
+                </script>
+<div id="button-line">
+{$control['konfigurator']['done']->control}
+{include #buttonZrusit}
+</div> 
+{control konfigurator end}
+
+

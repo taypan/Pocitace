@@ -1,0 +1,56 @@
+{extends innerLayout.phtml}
+{block obsah}
+<div id="zuctovani-cont">
+    <h3>EXPERIENCED GAMER</h3>
+    <img src="{$basePath}/css/images/{$sestava->case}" alt="case" width="170px" height="206px" />
+    <div class="config zuctovani">
+        <h4>KOMPONENTY:</h4>
+        <p class="komponenty">
+        {foreach $sideitems as $sideitem}
+        {$sideitem}
+        </br>
+        {/foreach}
+    </p>
+</div>
+<div class="config zuctovani">
+    <h4>VOLITELNÉ SOUČÁSTI:</h4>
+    <p class="komponenty">
+    </p>
+</div>
+<div class="config zuctovani">
+    <h4>DOPRAVA:</h4>
+    <p>
+        {$doprava}
+    </p>
+    <br/>
+    <br/>
+    <br/>
+    <h4>PLATBA:</h4>
+    <p>
+        {$platba}
+        <br/>
+    </p>
+</div>
+<div id="zuctovani-end">
+    <div class="price-nahledCont">
+        <div class="price-nahledDPH">
+            S DPH
+        </div>
+        <div class="price-nahledPrice">
+            {$cena*$dph+$doprava_cena*$dph|number:0:',':' '}, - Kč
+        </div>
+    </div>
+    <div class="price-nahledCont">
+        <div class="price-nahledNoDPH">
+            bez DPH
+        </div>
+        <div class="price-nahledNoDPHprice">
+            {$cena+$doprava_cena|number:0:',':' '}, - Kč
+        </div>
+    </div>
+    <div style="margin-top:50px">
+        {include #buttonZrusit}
+		<a href="{link confirm!}"><span class="button-green nahled-button">koupit</span></a>
+    </div>
+</div>
+</div>

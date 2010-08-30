@@ -1,0 +1,13 @@
+{block content}
+<div id="nahled">
+<div id="cCont">
+	<h3>{$nadpis}</h3>
+	<table style="">
+	<tr><th>Id</th><th>Název</th><th>Typ</th><th>Pořadí</th><th>Cena bez Dph [Kč]</th><th>Upravit</th></tr>
+	{foreach $sestavy as $sestava}
+	<tr><td>{$sestava->id}</td><td>{$sestava->nazev}</td><td>{$sestava->typ}</td><td>{$sestava->level}</td><td>{link Manager:edit}</td></tr>
+	{/foreach}
+	</table>
+    </div>
+     
+</div>

@@ -1,0 +1,63 @@
+{block content}
+<div id="nahled">
+    <div id="cCont">
+        <h3>{$nadpis} - <a href="{link Detail:,'typ'=>$sestava->typ,'id'=>$sestava->level}">{$trans[$sestava->typ]} {$sestava->level}</a></h3>
+        <div id="nahledCont">
+            <table width="500" border="2" cellspacing="5" cellpadding="5">
+                <tr>
+                    <th>
+                        Jméno
+                    </th>
+					<th>
+                        Typ
+                    </th>
+                    <th>
+                        Výchozí
+                    </th>
+                    <th>
+                        Změnitelná
+                    </th>
+                    <th>
+                        Upravit
+                    </th>
+                    <th>
+                        Smazat
+                    </th>
+                </tr>
+                {foreach $komponenty as $komponenta}
+                <tr>
+                    <td>
+                        {$komponenta->jmeno}
+                    </td>
+					<td><div align="center">
+                        {$komponenta->druh}</div>
+                    </td>
+                    <td><div align="center">
+                        {$komponenta->vychozi}</div>
+                    </td>
+                    <td><div align="center">
+                        {$komponenta->zmenitelna}</div>
+                    </td>
+                    <th>
+                        <a href="{link Manager:editKomb, 'id' => $komponenta->id, 'sestava' => $komponenta->id_sestava}">Upravit</a>
+                    </th>
+                    <th>
+                        <a href="{link rmKombinace!, 'komb' => $komponenta->id}">Smazat</a>
+                    </th>
+                </tr>
+                {/foreach}
+            </table>
+			<hr>
+            <p>
+                <div class="formCont">
+                    {widget insert}
+                </div>
+            </p>
+            <br>
+			<hr>
+            <div class="formCont">
+                {widget edit}
+            </div>
+        </div>
+    </div>
+</div>

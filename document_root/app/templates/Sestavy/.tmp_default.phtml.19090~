@@ -1,0 +1,30 @@
+{block item}
+<div id="pc{$i}-gaming">
+   	  <a href="{link Detail:, 'typ' => $typ, 'id' => $i}"><img id="nopadding" src="{$basePath}/images/{$typ}_0{$i}.jpg" alt="" width="247" height="174" /></a>
+        <a href="{link Detail:, 'typ' => $typ, 'id' => $i}" class="nazev-gaming"> {if isset($sestavy[$i]->nazev)} 
+        {$sestavy[$i]->nazev} 
+        {/if}</a>
+   	  <p>
+        {if isset($komponenty[$i])}
+        {foreach $komponenty[$i] as $komponenta}
+        {$komponenta->jmeno}
+        <br/>
+        {/foreach} 
+        {/if}</p>     	
+      <div class="priceLeft"></div>
+      <div class="priceBody"> {if isset($ceny[$i])}
+        {$ceny[$i]*$dph|number:0:',':' '}
+        {/if} s dph s dph</div><a href="{link Detail:, 'typ' => $typ, 'id' => $i}"><span class="button-{$color}">konfiguruj</span></a>
+     </div>
+{/block}
+
+{block content}
+<div id="zbozi">
+    {foreach $iterace as $i}
+    {include #item}
+    {/foreach}
+</div>
+
+
+
+

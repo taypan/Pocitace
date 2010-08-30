@@ -1,0 +1,480 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="cs" />
+	<meta name="Keywords" content="poč&iacute;tače, PC, PC sestavy, sestavy, profesion&aacute;ln&iacute;, hern&iacute;" />
+    <meta name="Description" content="Profesion&aacute;ln&iacute; poč&iacute;tače za solidn&iacute; ceny" />
+    <meta name='robots' content='all,follow,archive' />
+    <meta name='author' content='(c) Omnique' /> 
+<title>Počítače Omnique</title>
+<link href="/Omnique_shop/document_root/css/form.css" rel="stylesheet" type="text/css" />
+<link href="/Omnique_shop/document_root/css/style.css" rel="stylesheet" type="text/css" />
+<link href="/Omnique_shop/document_root/css/dgstyle.css" rel="stylesheet" type="text/css" />
+
+<script language="JavaScript" type="text/javascript" src="/Omnique_shop/document_root/js/form.js"></script>
+<script language="javascript" type="text/javascript" src="/Omnique_shop/document_root/js/prototype.js"></script>
+
+  <!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="/Omnique_shop/document_root/css/megamrdka.css">
+<![endif]-->
+</head>
+<body>
+<div id="cont">
+	<a href="http://pocitace.omnique.cz/"><img src="/Omnique_shop/document_root/css/images/img_02.png"  alt="omnique" id="logo" /></a>
+    <div id="Mcont">
+	<a class="menuGAMING" href="#">O NÁS</a>
+	<a class="menuGAMING" href="#">NABÍDKA</a>
+	<a class="menuGAMING" href="#">KONTAKT</a>
+	<a class="menuGAMING" href="/Omnique_shop/document_root/manager/">Sestavy</a>
+	<a class="menuGAMING" href="/Omnique_shop/document_root/manager/komponenty/">Komponenty</a>
+	
+</div>
+
+<div id="login-cont">
+<div id="kosik-gaming-link" class="gaming">v košíku máte 0 položek</div>
+<div id="login-link"><a href="/Omnique_shop/document_root/login/logout/">Odhlásit</a>
+</div>
+</div>
+<div id="subheader">
+	<div id="subTXTgaming">
+		<h1>Dokonalý herní zážitek</h1>
+		<h2>S POČÍTAČI OMNIQUE</h2>
+	</div>
+	<img src="/Omnique_shop/document_root/css/images/game_1_sub.jpg" alt="PC" width="328" height="206" id="subPIC" />
+</div>
+<div id="subMenuCont">
+	<a id="sub21" href="/Omnique_shop/document_root/sestavy/game/">GAMING</a>
+    <a id="sub2" href="/Omnique_shop/document_root/sestavy/pro/">PROFI</a>
+    <a id="sub3" href="/Omnique_shop/document_root/sestavy/office/">KANCELÁRSKÉ</a>
+    <a id="sub4" href="/Omnique_shop/document_root/sestavy/home/">DOMÁCÍ</a>
+</div>
+
+<div id="nahled">
+<h3 class="prubeh">Průběh objednávky - 1/6</h3>
+
+<a href="/Omnique_shop/document_root/1-game/konfigurace/"><span class="button-postup-green button-postup-left">Konfigurace</span></a>
+<a href="/Omnique_shop/document_root/1-game/doprava/"><span class="button-postup-grey">Doprava</span></a>
+<a href="/Omnique_shop/document_root/1-game/kosik/"><span class="button-postup-grey">Košík</span></a>	
+<a href="/Omnique_shop/document_root/1-game/podminky/"><span class="button-postup-grey">Podmínky</span></a>	
+<a href="/Omnique_shop/document_root/1-game/potvrzeni/"><span class="button-postup-grey">Potvrzení</span></a>	
+<a href="/Omnique_shop/document_root/1-game/zaver/"><span class="button-postup-grey">Závěr</span></a>	
+<form action="/Omnique_shop/document_root/1-game/konfigurace/konfigurator-submit" method="post" class="niceform" name="frm-konfigurator" onsubmit="return nette.validateForm(this)">    <div id="config-cont" class="niceform">
+    
+<div>
+<h3>Grafická karta</h3>
+            
+            <input type="radio" name="gpu" id="frmkonfigurator-gpu-0" value="8" /><label for="frmkonfigurator-gpu-0">PSU Seasonic 800<span class="config-price">( + <span class="config-price-value">4868</span> Kč )</span></label><br /><input type="radio" name="gpu" id="frmkonfigurator-gpu-1" value="3" /><label for="frmkonfigurator-gpu-1">Asus M4A79XTD EVO 790X<span class="config-price">( + <span class="config-price-value">54</span> Kč )</span></label><br />
+       
+        
+		</div>
+<div>
+<h3>Operační pamět</h3>
+       
+       
+            <input type="radio" name="ram" id="frmkonfigurator-ram-0" checked="checked" value="4" /><label for="frmkonfigurator-ram-0">Kingston DIMM 4096MB DDR III<span class="config-price">( + <span class="config-price-value">45</span> Kč )</span></label><br /><input type="radio" name="ram" id="frmkonfigurator-ram-1" value="20" /><label for="frmkonfigurator-ram-1">Kingston DIMM 4096MB DDR III<span class="config-price">( + <span class="config-price-value">45</span> Kč )</span></label><br />
+       
+        
+		</div>
+<div>
+<h3>Disk</h3>
+       
+       
+            <input type="radio" name="hdd" id="frmkonfigurator-hdd-0" checked="checked" value="5" /><label for="frmkonfigurator-hdd-0">Samsung SpinPoint F3 - 1TB<span class="config-price">( + <span class="config-price-value">456</span> Kč )</span></label><br /><input type="radio" name="hdd" id="frmkonfigurator-hdd-1" value="37" /><label for="frmkonfigurator-hdd-1">Samsung SpinPoint F3 - 1TB<span class="config-price">( + <span class="config-price-value">456</span> Kč )</span></label><br />
+       
+        
+		</div>
+<div>
+<h3>Chladič</h3>
+       
+       
+            <input type="radio" name="cool" id="frmkonfigurator-cool-0" value="6" /><label for="frmkonfigurator-cool-0">CoolerMaster Elite<span class="config-price">( + <span class="config-price-value">786</span> Kč )</span></label><br />
+       
+        
+		</div>
+<div>
+<h3>Ventilátor</h3>
+       
+       
+            <input type="radio" name="fan" id="frmkonfigurator-fan-0" checked="checked" value="7" /><label for="frmkonfigurator-fan-0">Zalman CU Cooler<span class="config-price">( + <span class="config-price-value">486</span> Kč )</span></label><br />
+       
+        
+		</div>
+    	
+    	
+    	
+    	
+        
+    </div>
+
+<div id="sidebar-config-float">
+<div id="sidebar-config-small">
+<div class="side-config">Aktuální cena</div>
+ <div class="price-nahledCont">
+      <div class="price-nahledDPH">S DPH</div>
+      <div class="price-nahledPrice" id="price-nahledPrice">61 184, - Kč</div></div>
+      <div class="price-nahledCont">
+      <div class="price-nahledNoDPH">bez DPH</div>
+      <div class="price-nahledNoDPHprice" id="price-nahledNoDPHprice">50 987, - Kč</div></div>
+      </div>
+<div id="sidebar-config">
+<div class="side-config">Aktuální konfigurace:</div>
+<ul id="side-config-detail">
+                            <li id="side-config-detail-default">
+                                Počítač: <span class="side-config-detail-value">25 000</span>,- Kč
+                            </li>
+                        </ul>
+<ul>
+<li>Kingston DIMM 4096MB DDR III</li>
+<li>Samsung SpinPoint F3 - 1TB</li>
+<li>Zalman CU Cooler</li>
+</ul>
+<div id="dovoz-cont">+ dovoz</div>
+</div>
+</div>
+<script type="text/javascript">
+                    <!--
+                    //
+                    var scsmt = 66;
+                    var scsdf = 85;
+                    var scsmo = 30;
+                    var scsot = 557;
+                    price_reload_init();
+                    // -->
+                </script>
+<div id="button-line">
+<input type="submit" class="button-green-mini button-mini-right button" style="padding-top: 0px;" name="done" id="frmkonfigurator-done" value="pokračovat" />
+<a onClick="if(confirm('Opravdu nezvratně odstranit věškeré informace o  objednávce?')) location.href = &quot;\/Omnique_shop\/document_root\/1-game\/konfigurace\/cancel&quot;;">
+<span class="button-grey-mini button-mini-right">zrušit</span>
+</a>
+</div> 
+<div><input type="hidden" name="_token_" id="frmkonfigurator-_token_" value="44a53fec01362857b4f3ad4e299c8d74" /></div>
+</form>
+<script type="text/javascript">
+/* <![CDATA[ */
+
+var nette = nette || { };
+
+nette.getValue = function(elem) {
+	if (!elem) {
+		var undefined;
+		return undefined;
+	}
+
+	if (!elem.nodeName) { // radio
+		for (var i = 0, len = elem.length; i < len; i++) {
+			if (elem[i].checked) {
+				return elem[i].value;
+			}
+		}
+		return null;
+	}
+
+	if (elem.nodeName.toLowerCase() === 'select') {
+		var index = elem.selectedIndex, options = elem.options;
+
+		if (index < 0) {
+			return null;
+
+		} else if (elem.type === 'select-one') {
+			return options[index].value;
+		}
+
+		for (var i = 0, values = [], len = options.length; i < len; i++) {
+			if (options[i].selected) {
+				values.push(options[i].value);
+			}
+		}
+		return values;
+	}
+
+	if (elem.type === 'checkbox') {
+		return elem.checked;
+	}
+
+	return elem.value.replace(/^\s+|\s+$/g, '');
+}
+
+
+nette.getFormValidators = function(form) {
+	var name = form.getAttributeNode('name').nodeValue;
+	return this.forms[name] ? this.forms[name].validators : [];
+}
+
+
+nette.validateControl = function(control) {
+	var validator = this.getFormValidators(control.form)[control.name];
+	return validator ? validator(control) : null;
+}
+
+
+nette.validateForm = function(sender) {
+	var form = sender.form || sender;
+	var validators = this.getFormValidators(form);
+	for (var name in validators) {
+		var error = validators[name](sender);
+		if (error) {
+			if (form[name].focus) {
+				form[name].focus();
+			}
+			alert(error);
+			return false;
+		}
+	}
+	return true;
+}
+
+
+nette.toggle = function(id, visible) {
+	var elem = document.getElementById(id);
+	if (elem) {
+		elem.style.display = visible ? "" : "none";
+	}
+}
+
+
+nette.forms = nette.forms || { };
+
+nette.forms["frm-konfigurator"] = {
+	validators: {
+		"gpu": function(sender) {
+			var res, form = sender.form || sender;
+			res = nette.getValue(form["gpu"]) !== null;
+			if (!res) return "Vsechny polo\u017eky mus\u00ed b\u00fdt vypn\u011bny!";
+		},
+		"ram": function(sender) {
+			var res, form = sender.form || sender;
+			res = nette.getValue(form["ram"]) !== null;
+			if (!res) return "Vsechny polo\u017eky mus\u00ed b\u00fdt vypn\u011bny!";
+		},
+		"hdd": function(sender) {
+			var res, form = sender.form || sender;
+			res = nette.getValue(form["hdd"]) !== null;
+			if (!res) return "Vsechny polo\u017eky mus\u00ed b\u00fdt vypn\u011bny!";
+		},
+		"cool": function(sender) {
+			var res, form = sender.form || sender;
+			res = nette.getValue(form["cool"]) !== null;
+			if (!res) return "Vsechny polo\u017eky mus\u00ed b\u00fdt vypn\u011bny!";
+		},
+		"fan": function(sender) {
+			var res, form = sender.form || sender;
+			res = nette.getValue(form["fan"]) !== null;
+			if (!res) return "Vsechny polo\u017eky mus\u00ed b\u00fdt vypn\u011bny!";
+		}
+	},
+
+	toggle: function(sender) {
+		var visible, res, form = document.forms["frm-konfigurator"];
+	}
+}
+
+
+
+/* ]]> */
+</script>
+
+
+
+</div><img src="/Omnique_shop/document_root/css/images/reklama_1.jpg" width="492" height="105" id="reklama1" />
+<img src="/Omnique_shop/document_root/css/images/reklama_2.jpg" width="243" height="105" id="reklama2" />
+<img src="/Omnique_shop/document_root/css/images/reklama_3.jpg" width="245" height="105" id="reklama3" />
+<div id="footer">
+
+
+<div class="box left-padding">
+ <img src="/Omnique_shop/document_root/css/images/ico_footer_17.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+</div>
+<div class="box split-line">
+<img src="/Omnique_shop/document_root/css/images/ico_footer_12.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<div class="box split-line">
+<img src="/Omnique_shop/document_root/css/images/ico_footer_14.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<div class="box split-line">
+<img src="/Omnique_shop/document_root/css/images/ico_footer_09.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<a href="#" id="youtube"></a>
+<a href="#" id="twitter"></a>
+<a href="#" id="facebook"></a>
+</div>
+<div id="footer-bottom"><input type="image" onclick="support_cs()" src="/Omnique_shop/document_root/css/images/footer_10.png" class="support" />
+
+<span id="footer-bottom-copyright">copyright © 2010 <a href="#">omnique</a></span>
+</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11937981-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>
+<style type="text/css">
+/* <![CDATA[ */
+	#netteProfilerContainer {
+		position: fixed;
+		_position: absolute;
+		right: 5px;
+		bottom: 5px;
+		z-index: 23178;
+	}
+
+	#netteProfiler {
+		font: normal normal 11px/1.4 Consolas, Arial;
+		position: relative;
+		padding: 3px;
+		color: black;
+		background: #EEE;
+		border: 1px dotted gray;
+		cursor: move;
+		opacity: .70;
+		=filter: alpha(opacity=70);
+	}
+
+	#netteProfiler * {
+		color: inherit;
+		background: inherit;
+		text-align: inherit;
+	}
+
+	#netteProfilerIcon {
+		position: absolute;
+		right: 0;
+		top: 0;
+		line-height: 1;
+		padding: 2px;
+		color: black;
+		text-decoration: none;
+	}
+
+	#netteProfiler:hover {
+		opacity: 1;
+		=filter: none;
+	}
+
+	#netteProfiler ul {
+		margin: 0;
+		padding: 0;
+		width: 350px;
+	}
+
+	#netteProfiler li {
+		margin: 0;
+		padding: 1px;
+		text-align: left;
+		list-style: none;
+	}
+
+	#netteProfiler span[title] {
+		border-bottom: 1px dotted gray;
+		cursor: help;
+	}
+
+	#netteProfiler strong {
+		color: red;
+	}
+/* ]]> */
+</style>
+
+
+<div id="netteProfilerContainer">
+<div id="netteProfiler">
+	<a id="netteProfilerIcon" href="#"><abbr>&#x25bc;</abbr></a
+	><ul>
+		<li>Elapsed time: <b>111.0</b> ms | Allocated memory: <b>6 994.6</b> kB
+</li><li>Last SQL query = <strong>SELECT cena FROM `komponenty`  WHERE (`id` = '7')  /* ORDER BY `` */ /* LIMIT NULL */ /* OFFSET NULL */</strong>
+</li><li><span>130/96 files</span>, <span title="ArgumentOutOfRangeException, InvalidStateException, NotImplementedException, NotSupportedException, DeprecatedException, MemberAccessException, IOException, FileNotFoundException, DirectoryNotFoundException, FatalErrorException, Framework, Object, ObjectMixin, Callback, LimitedScope, AutoLoader, NetteLoader, dibi, DateTime53, DibiVariable, DibiObject, DibiException, DibiDriverException, DibiConnection, DibiResult, DibiResultIterator, DibiRow, DibiTranslator, DibiDataSource, DibiFluent, DibiDatabaseInfo, DibiTableInfo, DibiResultInfo, DibiColumnInfo, DibiForeignKeyInfo, DibiIndexInfo, DibiProfiler, MyValidators, datagrid, Debug, Environment, Configurator, KeyNotFoundException, Collection, Hashtable, Config, ConfigAdapterIni, Tools, ArrayTools, AmbiguousServiceException, ServiceLocator, RobotLoader, Cache, FileStorage, DibiMySqlDriver, Application, ArrayList, MultiRouter, Route, HttpRequest, HttpResponse, FreezableObject, Uri, UriScript, String, ClassReflection, PropertyReflection, PresenterRequest, PresenterLoader, Component, ComponentContainer, RecursiveComponentIterator, PresenterComponent, Control, Presenter, BasePresenter, TemplatePresenter, ObjednavkaPresenter, PresenterComponentReflection, AnnotationsParser, User, Html, RecursiveHtmlIterator, Session, Identity, SessionNamespace, LoginPresenter, InstanceFilterIterator, BaseTemplate, Template, KompyAbsModel, DetailModel, MethodReflection, RenderResponse, AbortException, TemplateCacheStorage, LatteMacros, SnippetHelper, TemplateHelpers, ManagerPresenter, SestavyPresenter, SmartCachingIterator, FormContainer, Form, AppForm, Link, FormControl, HiddenField, Rules, Rule, ConventionalRenderer, RadioList, Button, SubmitButton, InstantClientScript">115 classes</span>, <span title="IDebuggable, IDibiProfiler, IDibiDriver, IDataSource, ICollection, IMap, IConfigAdapter, IServiceLocator, ICacheStorage, IList, IRouter, IHttpRequest, IHttpResponse, IPresenterLoader, IComponent, IComponentContainer, ISignalReceiver, IStatePersistent, IRenderable, IPartiallyRenderable, IPresenter, IUser, IIdentity, ITemplate, IFileTemplate, IPresenterResponse, INamingContainer, IFormControl, IFormRenderer, ISubmitterControl">30 intf</span>, <span title="callback, dump, dgxtract, magic_quote, _cbb68aa21455f_group, _cbb0547e59fb0_obsah, _cbb6328eeb679_subheader_img, _cbb01c5f5b393_buttonzrusit, _cbb8f02bfe9f0_sidebar, _cbba483931b73_content, _cbbaa90cbc419_subheader, _cbbf863a6ed5e_subheader_img">12 func</span>, <span title="WWW_DIR, APP_DIR, LIBS_DIR">3 consts</span>, 
+</li>		<li>Number of SQL queries: 14, elapsed time: 1.118 ms
+</li>		</ul>
+</div>
+</div>
+
+
+<script type="text/javascript">
+/* <![CDATA[ */
+document.getElementById('netteProfiler').onmousedown = function(e) {
+	e = e || event;
+	this.posX = parseInt(this.style.left + '0');
+	this.posY = parseInt(this.style.top + '0');
+	this.mouseX = e.clientX;
+	this.mouseY = e.clientY;
+
+	var thisObj = this;
+
+	document.documentElement.onmousemove = function(e) {
+		e = e || event;
+		thisObj.style.left = (e.clientX - thisObj.mouseX + thisObj.posX) + "px";
+		thisObj.style.top = (e.clientY - thisObj.mouseY + thisObj.posY) + "px";
+		return false;
+	};
+
+	document.documentElement.onmouseup = function(e) {
+		document.documentElement.onmousemove = null;
+		document.documentElement.onmouseup = null;
+		document.cookie = 'netteProfilerPosition=' + thisObj.style.left + ':' + thisObj.style.top + '; path=/';
+		return false;
+	};
+};
+
+document.getElementById('netteProfilerIcon').onclick = function(e) {
+	var arrow = this.getElementsByTagName('abbr')[0];
+	var panel = this.nextSibling;
+	var collapsed = panel.currentStyle ? panel.currentStyle.display == 'none' : getComputedStyle(panel, null).display == 'none';
+
+	arrow.innerHTML = collapsed ? String.fromCharCode(0x25bc) : 'Profiler ' + String.fromCharCode(0x25ba);
+	panel.style.display = collapsed ? 'block' : 'none';
+	arrow.parentNode.style.position = collapsed ? 'absolute' : 'static';
+
+	document.cookie = 'netteProfilerVisible=' + collapsed*1 + '; path=/';
+	return false;
+}
+
+document.body.appendChild(document.getElementById('netteProfilerContainer'));
+
+if (document.cookie.indexOf('netteProfilerVisible=0') > -1) {
+	document.getElementById('netteProfilerIcon').onclick();
+}
+
+var _nettePos = document.cookie.match(/netteProfilerPosition=([0-9-]+px):([0-9-]+px)/);
+if (_nettePos) {
+	document.getElementById('netteProfiler').style.left = _nettePos[1];
+	document.getElementById('netteProfiler').style.top = _nettePos[2];
+}
+/* ]]> */
+</script>

@@ -1,0 +1,127 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="cs" />
+	<meta name="Keywords" content="poč&iacute;tače, PC, PC sestavy, sestavy, profesion&aacute;ln&iacute;, hern&iacute;" />
+    <meta name="Description" content="Profesion&aacute;ln&iacute; poč&iacute;tače za solidn&iacute; ceny" />
+    <meta name='robots' content='all,follow,archive' />
+    <meta name='author' content='(c) Omnique' /> 
+<title>Počítače Omnique</title>
+<link href="{$basePath}/css/form.css" rel="stylesheet" type="text/css" />
+<link href="{$basePath}/css/style.css" rel="stylesheet" type="text/css" />
+<link href="{$basePath}/css/dgstyle.css" rel="stylesheet" type="text/css" />
+
+  <!--[if IE 6]>
+<link rel="stylesheet" type="text/css" href="{$basePath}/css/megamrdka.css">
+<![endif]-->
+
+<script language="JavaScript" type="text/javascript" src="{$basePath}/js/form.js"></script>
+<script language="javascript" type="text/javascript" src="{$basePath}/js/prototype.js"></script>
+</head>
+<body>
+<div id="cont">
+	<a href="http://pocitace.omnique.cz/"><img src="{$basePath}/css/images/img_02.png"  alt="omnique" id="logo" /></a>
+    <div id="Mcont">
+	<a class="menuGAMING" href="#">O NÁS</a>
+	<a class="menuGAMING" href="#">NABÍDKA</a>
+	<a class="menuGAMING" href="#">KONTAKT</a>
+	{if $user->isInRole('administrator')}
+	<a class="menuGAMING" href="{link Manager:sestavy}">Sestavy</a>
+	<a class="menuGAMING" href="{link Manager:komponenty}">Komponenty</a>
+	
+	{/if}
+</div>
+
+<div id="login-cont">
+<div id="kosik-gaming-link" class="gaming">v košíku máte {$kosik} položek</div>
+<div id="login-link">{$loginstatus}
+</div>
+</div>
+<div id="subheader">
+	<div id="subTXT{if isset($typ)}{$conTable[$typ]}{else}gaming{/if}">
+		<h1>{block #subheader}{$slogan}{/block}</h1>
+		<h2>S POČÍTAČI OMNIQUE</h2>
+	</div>
+	<img src="{block #subheader_img}{$basePath}/css/images/{if isset($typ)}{$typ}{else}game{/if}_4_sub.jpg{/block}" alt="PC" width="328" height="206" id="subPIC" />
+</div>
+<div id="subMenuCont">
+	<a class="submenu {if $typ == 'game'}active{/if}" href="{link Sestavy:game}">GAMING</a>
+    <a class="submenu next {if $typ == 'pro'}active{else}next{/if}" href="{link Sestavy:pro}">PROFI</a>
+    <a class="submenu next {if $typ == 'office'}active{else}next{/if}" href="{link Sestavy:office}">KANCELÁŘSKÉ</a>
+    <a class="submenu next {if $typ == 'home'}active{else}next{/if}" href="{link Sestavy:home}">DOMÁCÍ</a>
+</div>
+
+{foreach $flashes as $flash}
+<div style="position:absolute;top: 430px;left: 500px;color: white;" class="flash {$flash->type}">{$flash->message}</div>
+{/foreach}
+            {include #content}
+<img src="{$basePath}/css/images/reklama_1.jpg" width="492" height="105" id="reklama1" />
+<img src="{$basePath}/css/images/reklama_2.jpg" width="243" height="105" id="reklama2" />
+<img src="{$basePath}/css/images/reklama_3.jpg" width="245" height="105" id="reklama3" />
+<div id="footer">
+
+
+<div class="box left-padding">
+ <img src="{$basePath}/css/images/ico_footer_17.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+</div>
+<div class="box split-line">
+<img src="{$basePath}/css/images/ico_footer_12.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<div class="box split-line">
+<img src="{$basePath}/css/images/ico_footer_14.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<div class="box split-line">
+<img src="{$basePath}/css/images/ico_footer_09.png" alt="ico" />  <h4>nadpis</h4>
+  <ul>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+   <li>gaga ga</li>
+  </ul>
+
+</div>
+<a href="#" id="youtube"></a>
+<a href="#" id="twitter"></a>
+<a href="#" id="facebook"></a>
+</div>
+<div id="footer-bottom"><input type="image" onclick="support_cs()" src="{$basePath}/css/images/footer_10.png" class="support" />
+
+<span id="footer-bottom-copyright">copyright © 2010 <a href="#">omnique</a></span>
+</div>
+</div>
+
+
+
+
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+try {
+var pageTracker = _gat._getTracker("UA-11937981-1");
+pageTracker._trackPageview();
+} catch(err) {}</script>
+</body>
+</html>

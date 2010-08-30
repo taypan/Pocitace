@@ -1,0 +1,31 @@
+{extends innerLayout.phtml}
+{block group}
+<h3>{$nazev}</h3>
+       <div class="config-cont-box">
+       
+            {$control['doprava'][$druh]->control}
+       
+        </div>
+
+            
+{/block}
+{block obsah}
+{control doprava begin}
+ <div id="config-cont" class="niceform">
+    
+
+{control doprava errors}
+    	{include #group, 'nazev' => 'Doprava', druh => doprava}
+    	{include #group, 'nazev' => 'Platba', druh => platby}
+  		{control doprava validation}
+
+</div>
+    
+    {include #sidebar}
+
+<div id="button-line">
+{$control['doprava']['done']->control}
+{include #buttonZrusit}
+</div> 
+
+{control doprava end}

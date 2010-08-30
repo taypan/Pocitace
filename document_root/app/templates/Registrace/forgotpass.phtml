@@ -1,0 +1,17 @@
+{block content}
+<div id="nahled">
+<div id="final-cont">
+<h4></h4>
+{control forgotpass begin}
+Zadejte e-mail, který jste použili při registraci.
+<div class="split"></div>
+<p>{control forgotpass errors}</p>
+<div class="formCont">	
+	{control forgotpass validation}
+<div class="formContText"><div class="hvezda"></div><div class="formPopis">E-mail:</div> {$control['forgotpass']['email']->control}</div>
+</div>
+{$control['forgotpass']['done']->control}
+<div class="split"><p>Děkujeme za spolupráci</p></div>
+{control forgotpass end}
+</div>
+</div>

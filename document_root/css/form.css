@@ -13,6 +13,7 @@ img {border:0;}
 
 label {
 	float:left;
+	vertical-align: top;
 	color: #333;
 	cursor:pointer;
 	padding-left:15px;

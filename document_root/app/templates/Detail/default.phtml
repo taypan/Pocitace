@@ -1,0 +1,91 @@
+{block #subheader_img}{$basePath}/css/images/{$typ}_{$id}_sub.jpg{/block}
+{block content}
+
+<div id="nahled">
+<div id="cCont">
+	<h3>{$sestava->nazev}{if $user->isInRole('administrator')}<a href="{link Manager:edit, 'id' => $sestava->id}"> (upravit){/if}</a></h3>
+	<img src="{$basePath}/css/images/{$sestava->case}" alt="case" width="170px" height="206px" />
+	<div class="config">
+	  <h4>KOMPONENTY:</h4>
+	  <p class="komponenty">
+	      {if isset($komponenty)}
+				{foreach $komponenty as $komponenta}
+           		{$komponenta->jmeno}<br />
+           		{/foreach}
+           		{/if}    	
+      </p>
+     
+<div id="button-box">
+                <div class="price-nahledCont">
+      <div class="price-nahledDPH">S DPH</div>
+      <div class="price-nahledPrice">{$cena*$dph|number:0:',':' '}, - Kč</div></div>
+      <div class="price-nahledCont">
+      <div class="price-nahledNoDPH">bez DPH</div>
+      <div class="price-nahledNoDPHprice">{$cena|number:0:',':' '}, - Kč</div></div>
+      <a href="{link Objednavka:konfigurace, typ => $typ, id => $id}"><span class="button-{$color} nahled-button-margin-top ">konfiguruj</span></a>
+      <a href="{link Objednavka:buy, typ => $typ, id => $id}"><span class="button-grey-mini button-mini-left nahled-button-margin-top">koupit</span></a></div>
+
+     
+    </div>
+      <div class="split-nahled"></div>
+      <div id="split-cont">
+      <div class="box">  <img src="{$basePath}/css/images/ico_footer_17.png" alt="ico" /> <h4>gagaga</h4>
+       <ul>
+        <li>gaga ga</li>
+       </ul>
+      </div>
+      <div class="box split-line-nahled">
+       <img src="{$basePath}/css/images/ico_footer_17.png" alt="ico" /> <h4>gagaga</h4>
+       <ul>
+        <li>gaga ga</li>
+       </ul>
+       </div>
+      <div class="box split-line-nahled">
+        <img src="{$basePath}/css/images/ico_footer_17.png" alt="ico" /> <h4>gagaga</h4>
+       <ul>
+        <li>gaga ga</li>
+       </ul>
+        </div>
+      <div class="box split-line-nahled">  <img src="{$basePath}/css/images/ico_footer_17.png" alt="ico" /><h4>gagaga</h4>
+       <ul>
+        <li>gaga ga</li>
+       </ul>
+      </div>
+      </div>
+      <div class="split-nahled"></div>
+    <div id="nahledCont">
+     <h5>POPIS:</h5>
+	 <p>
+	 	{!$sestava->popis_o}
+     </p>
+    </div>
+    <div id="nahled-description">  <h5>POPIS:</h5>
+     <p>
+     	{!$sestava->popis_pro}
+     </p>
+     <div class="split"></div>
+     </div>
+    </div>
+      <div id="sidebarCont">
+      	<div class="resolutionTXT">určeno pro rozlišení do:</div>
+      	<div class="resolution">{$sestava->rozliseni}</div>
+        <div class="barTXT">lorem ipsum dor:</div>
+        	<div class="bar">
+        		<img src="#" alt="" id="gaming{$sestava->bar_game}" />
+            	<div class="INbarTXT">GAMING:</div>
+        	</div>
+        	<div class="bar">
+            	<img src="#" alt="" id="profi{$sestava->bar_pro}" />
+                <div class="INbarTXT">PROFI:</div>
+            </div>
+        	<div class="bar">
+            	<img src="#" alt="" id="office{$sestava->bar_office}" />
+            	<div class="INbarTXT">OFFICE:</div>
+            </div>
+        	<div class="bar">
+            	<img src="#" alt="" id="home{$sestava->bar_home}" />
+                <div class="INbarTXT">HOME:</div>
+            </div>
+            <div class="barTXT">{$sestava->sidebar}</div>
+      </div>
+</div>
